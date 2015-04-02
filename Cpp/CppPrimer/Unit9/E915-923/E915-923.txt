@@ -1,0 +1,88 @@
+=== 915
+std::vector<int> vec1, vec2;
+if (vec1 == vec2)
+	std::cout << "vec1 == vec2" << std::endl;
+	
+=== 916
+std::list<int> lst;
+std::vector<int> veci;
+std::vector<int> vecl;
+
+vecl.assign(lst.begin(), lst.end());
+if (vecl == veci)
+	std::cout << "value in lst equal to veci" << std::endl;
+	
+=== 917
+c1, c2 必须为同一类型的容器
+
+=== 918
+std::string str;
+std::deque<std::string> dstr;
+
+while (std::cin >> str)
+{
+	dstr.push_back(str);
+}
+
+for (auto &d : dstr)
+{
+	std::cout << d << std::endl;
+}
+
+=== 919
+std::string str;
+std::list<std::string> lstr;
+
+while (std::cin >> str)
+{
+	lstr.push_back(str);
+}
+
+for (auto &l : lstr)
+{
+	std::cout << l << std::endl;
+}
+
+=== 920
+std::list<int> lint = {1, 2, 3, ... };
+std::deque<int> dodd, deven;
+
+for (auto &l : lint)
+{
+	if (l % 2)
+	{
+		dodd.push_back(l);
+	}
+	else
+	{
+		deven.push_back(l);
+	}
+}
+
+=== 921
+std::string word;
+std::vector<std::string> vstr;
+auto iter = vstr.begin();
+while (cin >> word)
+	iter = vstr.insert(iter, word);
+
+=== 922
+vector<int>::iterator iter = iv.begin(),
+					mid = iv.begin() + iv.size()/2;
+					
+while (iter != mid)
+	//if (*iter == some_val)
+	//	iv.insert(iter, 2 * some_val);
+	if (*iter == some_val)
+	{
+		iv.insert(iter, 2 * some_val);
+		++iter;
+	}
+	
+=== 923
+// c.size() 为 1
+auto val = *c.begin();	// 第一个元素值
+auto val2 = c.front();	// 同上
+auto last = c.end();
+auto val3 = *(--last);	// 最后一个元素值，即第一个元素值
+auto val4 = c.back();	// 同上

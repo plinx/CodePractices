@@ -1,0 +1,6 @@
+int a = 3, b = 4;
+decltype(a) c = a;		// c - int
+decltype((b)) d = a; 	// d - int &
+++c;
+++d;
+// c = 5, d = 5;

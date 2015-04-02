@@ -1,0 +1,4 @@
+int *p;
+...
+if (p) 	// p isn't none
+if (*p) // p points to sth

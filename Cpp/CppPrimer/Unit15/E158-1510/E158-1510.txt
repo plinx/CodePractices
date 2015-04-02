@@ -1,0 +1,20 @@
+=== 158
+静态类型是在编译时已知的，它是变量声明时的类型或表达式生成的类型。
+动态类型则是变量或者表达式的内存中的对象的类型，直到运行时才可知。
+
+=== 159
+// double print_total(ostream&, const Quote&, size_t)
+print_total(cout, bq, 10);
+// static type : Quote
+// dynamic type : Bulk_quote
+
+// string get_price(const Quote&);
+get_price(bq);
+
+// void print_due(const Quote&);
+print_due(bq);
+
+=== 1510
+static type : istream
+dynamic type : ifstream
+

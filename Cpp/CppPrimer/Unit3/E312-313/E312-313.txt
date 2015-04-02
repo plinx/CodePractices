@@ -1,0 +1,13 @@
+=== 312
+(a) vector<vector<int>> ivec;
+(b) vector<string> svec = ivec;		// err: int to string
+(c) vector<string> svec(10, "null") // {"null" * 10}
+
+=== 313
+(a) vector<int> v1;					// num : 0, var : null
+(b) vector<int> v2; 				// num : 10, var : 0
+(c) vector<int> v3(10, 42);			// num : 10, var : 42
+(d) vector<int> v4{10};				// num : 1, var : 10
+(e) vector<int> v5{10, 42};			// num : 2, var : 10, 42
+(f) vector<string> v6{10}; 			// num : 10, var : null
+(g) vector<string> v7{10, "hi"};	// num : 10, var : "hi"

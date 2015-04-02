@@ -1,0 +1,58 @@
+=== 432
+constexpr int size = 5;
+int ia[size] = {1, 2, 3, 4, 5];
+for (int *ptr = ia, ix = 0;
+		ix != size && ptr != ia + size;
+		++ix, ++ptr)
+{
+	/* ... */
+}
+遍历 ia[5]
+
+=== 433
+someValue ? ++x, ++y : --x, --y;
+
+someValue == 1 时 返回 ++y
+someValue == 0 时 返回 --y
+
+=== 434
+(a) if (fval)
+// float => int => boll
+(b) dval = fval + ival;
+// ival => fval => dval
+(c) dval + ival * cval;
+// cval => ival => dval
+
+=== 435
+char cval; 
+int ival;
+unsigned int ui;
+float fval;
+double dval;
+
+(a) cval = 'a' + 3;
+// char => int => char
+(b) fval = ui - ival * 1.0;
+// int => float, unsigned int => float
+(c) dval = ui * fval;
+// usigned int => float => double
+(d) cval = ival + fval + dval;
+// int => float => double => char
+
+=== 437
+int i;
+double d;
+const string *ps;
+char *pc;
+void *pv;
+(a) pv = (void*) ps;
+pv = static_cast<void*>(ps);
+(b) int(*pc);
+const_cast<int>(*pc)
+(c) pv = &d;
+(d) pc = (char *) pv;
+pc = reinterpret_cast<char *>(pv)
+
+=== 438
+double slope = static_cast<double>(j/i);
+j/i 的结果强制类型转换为 double

@@ -1,0 +1,56 @@
+=== 169
+函数模板：为函数创建模板，可以根据函数实参推断出函数的参数类型
+类模板：为类创建模板，根据现实模板实参推断类的参数类型
+
+=== 1610
+当类模板被实例化的时候，模板实参会被绑定到特定的位置，编译器根据模板实参来实例化出特定的类
+
+=== 1611
+template <typename elemType> class ListItem;
+template <typename elemType> class List {
+public:
+	List<elemType>();
+	List<elemType>(const List<elemType> &);
+	List<elemType>& operator=(const List<elemType> &);
+	~List();
+	
+	//void insert(ListItem *ptr, elemType value);
+	void insert(ListItem<elemType> *ptr, elemType value);
+private:
+	//ListItem *front, *end;
+	ListItem<elemType> *front, *end;
+};
+
+=== 1612
+template <typename T> class Blob
+{
+public:
+	friend class BlobPtr<T>;
+	friend bool operator==<T>;
+
+	typedef T value_type;
+	typedef typename std::vector<T>::size_type size_type;
+	Blob();
+	Blob(std::initializer_list<T> il);
+	size_type size() const { return data->size() };
+	void push_back(T &&t) { data->push_back(t); }
+	void pop_back();
+	T& back();
+	T& operator[](size_type i);
+private:
+	std::shared_ptr<std::vector<T>> data;
+	void check(size_type i, const std::string &msg) const;
+};
+
+template <typename T> class BlobPtr
+{
+public:
+	friend bool operator==<T>;
+private:
+	std::shared_ptr<T> Blob;
+};
+
+=== 1613
+选择友元作为相等和关系运算符的友好类型。
+
+

@@ -1,0 +1,11 @@
+decltype : 包含 const 一起返回
+auto : 不包含 top-level const 一起返回
+
+int a = 0;
+decltype(a) b = a;
+auto c = a;
+// b and c both int
+
+const int d = 0;
+decltype(d) e = d; 	// e - const int
+auto f = d;			// f - int

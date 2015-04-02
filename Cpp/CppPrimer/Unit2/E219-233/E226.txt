@@ -1,0 +1,4 @@
+(a) const int buf;		// err: init
+(b) int cnt = 0;
+(c) const int sz = cnt; // err: cnt isn't const
+(d) ++cnt; ++sz;		// err: sz is const

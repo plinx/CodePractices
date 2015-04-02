@@ -1,0 +1,39 @@
+=== 1038
+1) 输入迭代器 input iterator
+支持的操作：
+判断 		==/!=
+增迭代 		++
+解引用 		*
+箭头运算 	->
+2) 输出迭代器 output iterator
+增迭代		++
+解引用		*
+3) 前向迭代器 forward iterator
+支持所有输入/输出迭代器操作
+4) 双向迭代器 bidirectional iterator
+支持所有前向迭代器操作，还支持减迭代 --
+5) 随机访问迭代器 random-access iterator
+支持的操作：
+关系运算符	< <= >=
+加减运算	+ += - -=
+减法运算符	-
+下标运算符	iter[n]/*(iter[n])
+
+=== 1039
+list 属于双向迭代器
+vector 属于随机访问迭代器
+
+=== 1040
+copy 要求前向迭代器
+reverse 要求双向迭代器
+unique 要求前向迭代器
+
+=== 1041
+replace(beg, end, old_val, new_val);
+// 将 iterator1 中的 old_val 替换为 new_val
+replace_if(beg, end, pred, new_val);
+// 将 iterator1 中满足 pred 为真的元素替换为 new_val
+replace_copy(beg, end, dest, old_val, new_val);
+// 将 iterator1 中的 old_val 替换为 new_val 存入 dest 中
+replace_copy_if(beg, end, dest, pred, new_val);
+// 将 iterator1 中满足 pred 的元素替换为 new_val 存入 dest 中

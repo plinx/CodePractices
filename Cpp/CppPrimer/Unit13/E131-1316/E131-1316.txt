@@ -1,0 +1,110 @@
+=== 131
+拷贝构造函数用于接收 类类型引用，对该类进行初始化。
+当我们希望类按照我们提供的参数进行初始化时，需要调用拷贝构造函数。
+
+=== 132
+Sales_data::Sales_data(Sales_data rhs);
+// 没有使用引用 &rhs
+
+=== 133
+拷贝一个 StrBlob 时将构造并返回一个 StrBlob 的引用;
+拷贝一个 StrBlobPtr 时将初始化并返回一个指向 StrBlob 的指针。
+
+=== 134
+Point global;
+Point foo_bar(Point arg)
+{
+	Point local = arg, *heap = new Point(global);	// new Point(global)
+	*heap = local;
+	Point pa[4] = {local, *heap};	// Point pa[4]
+	return *heap;
+}
+
+=== 135
+class HasPtr {
+public:
+	HasPtr(const std::string &s = std::string()) :
+		ps(new std::string(s)), i(0) {}
+	// new copy constuctor
+	HasPtr(const std::string &s, int &ival) :
+		ps(new std::string(s)), i(ival) {}
+
+private:
+	str::string *ps;
+	int i;
+};
+
+=== 136
+拷贝赋值运算符用来控制类的赋值。
+当类使用 '=' 号时使用它。
+合成拷贝赋值运算符的工作：
+1) 进制某些类进行对象赋值
+2) 逐个给类中非 static 的对象赋值
+当类未自定义自己的拷贝赋值运算符时，编译器会生成一个合成拷贝赋值运算符。
+
+=== 137
+当一个 StrBlob 赋值给 另外一个 StrBlob 时，将会把
+'=' 号右侧的 StrBlob 中的值逐个拷贝给左侧的 StrBlob。
+当一个 StrBlobPtr 赋值给另外一个 StrBlobPtr 时，将会令
+'=' 号左侧的 StrBlobPtr 指向 右侧的 StrBlobPtr 指向的 StrBlob。
+
+=== 138
+class HasPtr {
+public:
+	// old
+	HasPtr& operator=(const HasPtr&);
+	
+private:
+	std::string *ps;
+	int i;
+};
+
+HasPtr& HasPtr::operator=(const HasPtr &rhp)
+{
+	*ps = *rhp.ps;
+	i = rhp.i;
+	return *this;
+}
+
+=== 139
+析构函数用于释放对象使用的资源，销毁对象非 static　的数据成员。
+合成构造函数的工作：
+1) 组织该类型被销毁
+2) 执行后自动销毁对象成员
+
+=== 1310
+当一个 StrBlob 销毁时，会释放 StrBlob 内部的数据会被销毁；
+当一个 StrBlobPtr 销毁时，指向 StrBlob 的指针会被释放。
+
+=== 1311
+~HasPtr() 
+{
+	delete ps;
+}
+
+=== 1312
+bool fcn(const Sales_data *trans, Sales_data accum)
+{
+	Sales_data item1(*trans), item2(accum);
+	return item1.isbn()! = item2.isbn();	// call ~Sales_data() twice
+}
+
+=== 1314
+void f(numbered s) { cout << s.mysn << endl; }
+
+numbered a, b = a, c = b;
+f(a);	// output a.mysn
+f(b);	// output b.mysn
+f(c);	// output c.mysn
+
+=== 1315
+numbered a, b = a, c = b;	
+f(a); f(b); f(c);	// output mysn inited in constructor
+
+=== 1316
+void f(const numbered &s) { cout << s.mysn << endl; }
+// output the mysn s refer to 
+
+
+		
+

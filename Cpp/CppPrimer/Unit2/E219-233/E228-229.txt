@@ -1,0 +1,23 @@
+=== 228
+(a) int i, *const cp; 
+// err: cp must point to sth
+(b) int *p1, *const p2;
+// err: p2 must point to sth, then p2 won't change
+(c) const int ic, &r = ic;
+// err: ic isn't init
+// r - const refer to ic
+(d) const int *const p3;
+// err: p3 must point to sth(const), then p3 won't change
+(e) const int *p;
+// err: p must point to sth(const)
+
+=== 229
+(a) i = ic;
+// err type: i - int, ic - const int
+(b) p1 = p3;
+// err type: p1 - int*, p3 - const int *const
+(c) p1 = &ic;
+// err type: p1 - int, ic - const int
+(d) p3 = &ic;
+(e) p2 = p1;
+(f) ic = *p3;

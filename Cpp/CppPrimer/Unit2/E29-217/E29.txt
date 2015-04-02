@@ -1,0 +1,11 @@
+(a)	//std::cin >> int input_value;
+	int input_value;
+	std::cin >> input_value;
+(b)	//int i = { 3.14 };
+	int i(3.14);
+(c)	//double salary = wage = 9999.99;
+	double salary, wage = 9999.99;
+	or
+	double salary = 9999.99;
+	double wage = 9999.99;
+(d) int i = 3.14;

@@ -1,0 +1,8 @@
+(a) sizeof x + y
+(sizeof x) + y
+(b) sizeof p->mem[i]
+sizeof(p->mem[i])
+(c) sizeof a < b
+sizeof(a) < b
+(d) siezof f()
+sizeof(f())

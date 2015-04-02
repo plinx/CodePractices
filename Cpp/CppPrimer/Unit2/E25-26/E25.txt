@@ -1,0 +1,6 @@
+2.5
+(a)'a' - 字符, L'a' - 宽字符, "a" - 字符串, L"a" - 宽字符串
+(b)10 - int, 10u - unsigned int, 10L - 宽字符, 10uL - unsigned 宽字符
+	012 - 八进制, 0xC - 十六进制
+(c)3.14 - float, 3.14f - float, 3.14L - 宽字符
+(d)10 - int, 10u - unsigned 整形, 10. - float， 10e-2 - float

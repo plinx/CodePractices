@@ -1,0 +1,11 @@
+﻿Build started 2014/12/21 17:21:28.
+     1>Project "H:\DreamCode\CppPrimer\Unit15\E1511\E1511\E1511.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         Source.cpp
+     1>h:\dreamcode\cppprimer\unit15\e1511\e1511\quote.h(50): error C3668: 'book_quote::debug' : method with override specifier 'override' did not override any base class methods
+     1>Done Building Project "H:\DreamCode\CppPrimer\Unit15\E1511\E1511\E1511.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.71

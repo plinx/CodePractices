@@ -1,0 +1,6 @@
+1) back_inserter
+create push_back iterator
+2) front_inserter
+create push_front iterator
+3) inserter
+create push_back after input iterator

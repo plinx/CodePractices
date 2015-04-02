@@ -1,0 +1,78 @@
+=== 91
+(a) list
+(b) deque
+(c) vector
+
+=== 92
+list<deque<int>>
+
+=== 93
+(1) 必须指向同一个迭代器
+(2) begin 不在 end 之后
+
+=== 94
+bool search(std::vector<int>::iterator &begin, 
+			std::vector<int>::iterator &end, int val)
+{
+	while (begin != end)
+	{
+		if (*begin == val) return true;
+		++begin;
+	}
+	return false;
+}
+
+=== 95
+vector<int>::iterator search(std::vector<int>::iterator &begin, 
+			std::vector<int>::iterator &end, int val)
+{
+	auto it = begin;
+	while (it != end)
+	{
+		if (*it == val) return it;
+		++it;
+	}
+	return 0;
+}
+
+=== 96
+list<int> lst1;
+list<int>::iterator iter1 = lst1.begin(), iter2 = lst1.end();
+
+//while (iter1 < iter2)
+while (iter1 != iter2)
+
+=== 97
+vector<int>::iterator
+
+=== 98
+list<string>::iterator
+list<string>::value_type
+
+=== 99
+begin 取出来为 iterator，可以写访问
+cbegin 取出来为 const_iterator，不可写访问
+
+=== 910
+vector<int> v1;
+const vector<int> v2;
+auto it1 = v1.begin();	// iterator
+auto it2 = v2.begin();	// const_iterator
+auto it3 = v1.cbegin(); // const_iterator
+auto it4 = v2.cbegin();	// const_iterator
+
+=== 911
+vector<int> vec1;	// vec1 为空
+vector<int> vec2(vec1);		// 拷贝 vec1 到 vec2
+vector<int> vec3 = vec1; 	// 拷贝 vec1 到 vec3
+vector<int> vec4 = {1, 2};	// 初始化 vec4 为 {1, 2}
+vector<int> vec5{1, 2};		// 初始化 vec5 为 {1, 2}
+vector<int> vec6(10, 1);	// 初始化 vec6 为 10 个 1
+vector<int> vec7(vec6.begin(), vec6.end());
+// 初始化 vec7 为 [vec6.begin(), vec6.end())
+
+=== 912
+接收一个容器创建其拷贝的构造函数将容器进行完整拷贝初始化。
+接收一个两个迭代器创建拷贝的构造函数将一个范围进行拷贝初始化。
+
+

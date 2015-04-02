@@ -1,0 +1,17 @@
+=== 57
+(a) if (ival1 != ival2)
+		ival1 = ival2		// err : without ';'
+	else ival1 = ival2 = 0;
+(b) if (ival < minval)
+		minval = ival;
+		occurs = 1;			// err : occurs is out of if block
+(c) if (int ival = get_value())
+		cout << "ival = " << ival << endl;
+	if (!ival)				// err : ival is in pre if block
+		cout << "ival = 0\n";	
+(d) if (ival = 0)
+		ival = get_value();
+		
+=== 58
+悬垂 else 表示不与预期匹配的 else
+C++ 处理 else 通过 if-else 逐一匹配进行

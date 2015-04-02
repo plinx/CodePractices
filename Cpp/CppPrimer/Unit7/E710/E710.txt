@@ -1,0 +1,3 @@
+if (read(read(cin, data1), data2))
+
+先输入 data1, 然后输入 data2

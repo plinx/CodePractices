@@ -1,0 +1,31 @@
+=== 327
+int txt_size();
+unsigned buf_size = 1024;
+
+(a) int ia[buf_size];				// buf_size isn't constexpr
+(b) int ia[4*7 - 14];				// 
+(c) int ia[txt_size()];				// txt_size() isn't constexpr
+(d) char st[11] = "fundamental";	// without '\0' in st
+
+=== 328
+string sa[10];			// random malloc
+int ia[10];				// randoom malloc
+int main()
+{
+	string sa2[10];		// random malloc
+	int ia2[10];		//random malloc
+}
+
+=== 329
+相对于 vector 来说，数组缺点如下：
+1) 声明的长度必须为 constexpr，维度在编译时必须确定;
+2) 数组大小确定不变，不能向数组中随意添加数字;
+3) 不能使用 auto 为数组分配类型，必须制定类型。
+
+=== 330
+constexpr size_t array_size = 10;
+
+int ia[array_size];
+for (size_t ix = 1; ix <= array_size; ++ix)
+	ia[ix] = ix;		// ix == array_size: err ia[ix] = ia[10]
+	

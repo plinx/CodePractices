@@ -1,0 +1,10 @@
+#include <iostream>
+
+/*
+ * ×¢ÊÍ¶Ô /**/ÎÞ·¨Ç¶Ì×
+ */
+
+int main()
+{
+	return 0;
+}

@@ -1,0 +1,13 @@
+=== 1217
+int ix = 1024, *pi = &ix, *pi2 = new int(2048);
+typedef unique_ptr<int> IntP;
+
+(a) IntP p0(ix);	// 无法将 int 转化为 unique_ptr	
+(b) IntP p1(pi);	// 当程序结束时， delete pi 将报错
+(c) IntP p2(pi2);	// 当在块内声明时，块结束就会销毁
+(d) IntP p3(&ix);	// 同上
+(e) IntP p4(new int(2048));	// 同上
+(f) IntP p5(p2.get());	// 两个 unique_ptr<int> 指向同一个元素
+
+=== 1218
+shared_ptr 不需要 release 来销毁原调用，因为可以多个指针指向同一个元素

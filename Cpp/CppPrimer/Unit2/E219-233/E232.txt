@@ -1,0 +1,3 @@
+//int null = 0, *p = null;
+int null = 0;
+constexpr int *p = &null;

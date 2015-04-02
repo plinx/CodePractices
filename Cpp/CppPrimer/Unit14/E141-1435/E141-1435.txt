@@ -1,0 +1,429 @@
+=== 141
+当重载运算符作用于用户类型的时候，与内置运算符有区别；
+当重载运算符用于系统内置类型的时候，与内置运算符一致。
+
+=== 142
+istream &operator>>(istream &is, Sales_data &sd)
+{
+	double price;
+	is >> sd.bookNo >> sd.sold >> price;
+	if (is)
+	{
+		sd.revenue = sd.sold * price;
+	}
+	else
+	{
+		sd = Sales_data();
+	}
+	return is;
+}
+
+ostream &operator<<(ostream &os, Sales_data &sd)
+{
+	os << sd.isbn() << " " << sd.sold << " "
+		<< sd.revenue << " " << sd.avg_price();
+		
+	return os;
+}
+
+Sales_data Sales_data::operator+(Sales_data &sd1, Sales_data &sd2)
+{
+	Sales_data ret_data;
+	ret_data.bookNo = sd1.bookNo;
+	ret_data.sold = sd1.sold + sd2.sold;
+	ret_data.price = sd1.price + sd2.price;
+	ret_data.revenue = ret_data.sold * price;
+	
+	return ret_data;
+}
+
+Sales_data Sales_data::operator=(Sales_data &sd1, Sales_data &sd2)
+{
+	sd1.bookNo = sd2.bookNo;
+	sd1.sold = sd2.sold;
+	sd1.price = sd2.price;
+	sd1.revenue = sd2.revenue;
+	
+	return sd1;
+}
+
+=== 143
+(a) "cobble" == "stone";	// string ==
+(b) svec1[0] == sevc2[0];	// string ==
+(c) svec1 == svec2;			// vector ==
+(d) svec1[0] == "stone" 	// string ==
+
+=== 144
+...
+
+=== 145
+class Employee {
+public:
+	Employee(std::string n, int i) : name(n), id(i) {}
+private:
+	std::string name;
+	int id;
+};
+
+bool Employee::operator==(Employee &e1, Employee &e2)
+{
+	return 	e1.name == e2.name &&
+			e1.is == e2.id;
+}
+
+bool Employee::operator!=(Employee &e1, Employee &e2)
+{
+	return 	e1.name != e2.name ||
+			e1.id != e2.id;
+}
+
+istream &operator>>(istream &is, Employee &e)
+{
+	is >> e.name >> e.id;
+	if (!is)
+	{
+		e = Employee();
+	}
+	
+	return is;
+}
+
+ostream &operator<<(ostream &os, Employee &e)
+{
+	os << e.name << e.id;
+	
+	return os;
+}
+
+=== 146
+see 142.
+
+=== 147
+...
+
+=== 148
+see 145.
+
+=== 149
+see 142.
+
+=== 1410
+(a) 0-201-99999-9 10 24.95
+bookNo: 0-201-99999-9
+sold:	10
+price:	24.95
+(b) 10 24.95 0-201-99999-9
+// if(is) -> else
+bookNo:	0
+sold:	0
+price:	0
+
+=== 1411
+istream &operator>>(istream &in, Sales_data &s)
+{
+	double price;
+	in >> s.bookNo >> s.sold >> price;
+	// error for no checking at 'in'
+	s.revenue = s.sold * price;
+	// with the input in 1410(a), everything runs good
+	// with the input in 1410(b), revenue will return a wrong number
+	
+	return in;
+}
+
+=== 1412
+see 145.
+
+=== 1413
+bool Sales_data::operator==(const Sales_data &sd1, const Sales_data &sd2)
+{
+	return 	sd1.isbn() == sd2.isbn() &&
+			sd1.sold == sd2.sold &&
+			sd1.revenue == sd2.revenue;
+}
+
+bool Sales_data::operator!=(const Salse_data &sd1, const Sales_data &sd2)
+{
+	return 	sd1.isbn() != sd2.isbn() ||
+			sd1.sold != sd2.sold ||
+			sd1.revenue != sd2.revenue;
+}
+
+=== 1414
+当计算式常为 val = val + newval 时，
+operator+= 比 operator+ 更有效。
+
+=== 1415
+see 145.
+
+=== 1416
+class StrBlob {
+public:
+	// ...
+private:
+	shared_ptr<vector<string>> data;
+	void check(size_type i, const string &msg) const;
+};
+
+bool StrBlob::operator==(StrBlob &lb, StrBlob &rb)
+{
+	return lb.data == rb.data;
+}
+
+bool StrBlob::operator!=(StrBlob &lb, StrBlob &rb)
+{
+	return !(lb == rb);
+}
+
+class StrBlobPtr {
+public:
+	// ...
+private:
+	shared_ptr<vector<string>> check(size_t, const string&) const;
+	weak_ptr<vetor<string>> wptr;
+	size_t curr;
+};
+
+bool StrBlobPtr::operator==(StrBlobPtr &lp, StrBlobPtr &rp)
+{
+	return 	*lp == *rp &&
+			lp.curr == rp.curr;
+}
+
+bool StrBlobPtr::operator!=(StrBlobPtr &lp, StrBlobPtr &rp)
+{
+	return !(lp == rp);
+}
+
+// ...
+
+=== 1417
+see 145.
+
+=== 1418
+bool StrBlob::operator<(StrBlob &lb, StrBlob &rb)
+{
+	return lb.data < rb.data;
+}
+
+bool StrBlob::operator>(StrBlob &lb, StrBlob &rb)
+{
+	return lb < rb;
+}
+
+
+bool StrBlobPtr::operator<(StrBlobPtr &lp, StrBlobPtr &rp)
+{
+	return lp.curr < rp.curr;
+}
+
+bool StrBlobPtr::operator>(StrBlobPtr &lp, StrBlobPtr &rp)
+{
+	return lp < rp;
+}
+
+=== 1420
+Sales_data Sales_data::operator+(Sales_data &sd1, Sales_data &sd2)
+{
+	Sales_data ret_data;
+	ret_data.bookNo = sd1.bookNo;
+	ret_data.sold = sd1.sold + sd2.sold;
+	ret_data.price = sd1.price + sd2.price;
+	ret_data.revenue = ret_data.sold * price;
+	
+	return ret_data;
+}
+
+Sales_data Sales_data::operator+=(Sales_data &sd1, Sales_data &sd2)
+{
+	sd1.sold += sd2.sold;
+	sd1.price += sd2.price;
+	sd1.revenue = sd1.sold * price;
+	
+	return sd1;
+}
+
+=== 1421
+see 1420.
+
+Sales_data Sales_data::operator+=(Sales_data &sd1, Sales_data &sd2)
+{
+	Sales_data ret_data;
+	ret_data = sd1 + sd2;
+	
+	return ret_data;
+}
+
+通过调用 + 来实现 += 会浪费额外的空间。
+
+=== 1422
+Sales_data &Sales_data::operator=(Sales_data &data, String str)
+{
+	data.bookNo = str;
+	
+	return data;
+}
+
+=== 1423
+StrVec &StrVec::operator=(initializer_list<string> il)
+{
+	auto data = alloc_n_copy(il.begin(), il.end());
+	free();
+	elements = data.first;
+	first_free = cap = data.second;
+	
+	return *this;
+}
+
+=== 1424
+Employee &Employee::operator=(const Employee em)
+{
+	name = em.name;
+	id = em.id;
+	
+	return *this;
+}
+
+// no need to operator+= in Employee
+
+=== 1425
+see 145.
+
+=== 1426
+string &StrBlob::operator[](size_t n)
+{
+	return data[n];
+}
+
+string &StrBlobPtr::operator[](size_t n)
+{
+	check(n, "out of range.");
+	auto sp = wptr.lock();
+	return (*sp)[n];
+}
+
+// ...
+
+=== 1427
+StrBlobPtr &StrBlobPtr::operator++()
+{
+	check(curr, "end of range");
+	++curr;
+	return *this;
+}
+
+StrBlobPtr &StrBlobPtr::operator--()
+{
+	--curr;
+	check(curr, "out of range");
+	return *this;
+}
+
+StrBlobPtr StrBlobPtr::operator++(int)
+{
+	StrBlobPtr ret = *this;
+	++*this;
+	return ret;
+}
+
+StrBlobPtr StrBlobPtr::operator--(int)
+{
+	StrBlobPtr ret = *this;
+	--*this;
+	return ret;
+}
+
+=== 1428
+StrBlobPtr StrBlobPtr::operator+=(size_t n)
+{
+	curr += n;
+	check(curr, "out of range");
+	return *this;
+}
+
+StrBlobPtr StrBlobPtr::operator-=(size_t n)
+{
+	curr -= n;
+	check(curr, "out of range");
+	return *this;
+}
+
+=== 1429
+operator++/operator-- 会改变 StrBlobPtr 的值，故不使用 const
+
+=== 1430
+// ...
+
+=== 1431
+StrBlobPtr 没有需要动态分配的空间，所以不需要构造函数。
+...
+
+=== 1432
+class PStrBlobPtr {
+public:
+	PStrBlobPtr() = default;
+	PStrBlobPtr(StrBlobPtr *p) : pointer(p) {}
+	
+	StrBlobPtr& operator*();
+	StrBlobPtr& operator->();
+	
+private:
+	StrBlobPtr *pointer = nullptr;
+};
+
+StrBlobPtr &PStrBlobPtr::operator*()
+{
+	return *(this->pointer);
+}
+
+StrBlobPtr &PStrBlobPtr::operator->()
+{
+	return &this->pointer *();
+}
+
+=== 1433
+no limit
+
+=== 1434
+class ite {
+	int operator()(int val1, int val2, int val3)
+	{
+		if (val1)
+		{
+			return val1;
+		}
+		else if (val2)
+		{
+			return val2;
+		}
+		else
+		{
+			return val3;
+		}
+	}
+};
+
+=== 1435
+class GetString {
+public:
+	GetString(istream &i, string s) : is(i), str(s) {}
+	string &operator() (istream&, string&);
+
+private:
+	istream &is;
+	string str;
+};
+
+string &GetString::operator(istream &in, string &str)
+{
+	in >> str;
+	if (!in)
+		return null;
+	
+	return str;
+}
+
+
+
+
+

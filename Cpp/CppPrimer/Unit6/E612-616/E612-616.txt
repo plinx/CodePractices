@@ -1,0 +1,21 @@
+=== 612
+操作都需要三步，两步交叉存储，一步暂存中间值
+
+=== 613
+void(T)		// 形参声明时初始化为 T
+void(&T)	// 形参就是 T 的引用
+
+=== 614
+void reset(int &r);			// 形参可以是引用
+void reset(const int &r);	// 形参不能是引用
+
+=== 615
+s 是常量引用，防止 s 被改变导致 for 失效
+occurs 是普通引用，因为需要改变 occurs 的值
+
+=== 616
+//bool is_empty(string &s) 		// 无法校验输入的 string 类型
+bool is_empty(const string &s)
+{
+	return s.empty();
+}

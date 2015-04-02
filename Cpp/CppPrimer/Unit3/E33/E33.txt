@@ -1,0 +1,5 @@
+string line, word;
+
+getline(cin, line);	// 检测到 '\n' 才为一行
+
+cin >> word;		// 检测到 ' ' 为一行

@@ -1,0 +1,11 @@
+=== 337
+const char ca[] = {'h', 'e', 'l', 'l', 'o'}
+const char *cp = ca;
+while (*cp) {
+	cout << *cp << endl;
+	++cp;
+}
+// 输出字符数组 ca 的值
+
+=== 338
+两个指针相加是两个指针地址相加，没有实际操作意义

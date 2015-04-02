@@ -1,0 +1,10 @@
+=== 51
+空语句是语法上需要，但无实际操作的语句。
+
+=== 52
+块是华阔华括起来的语句和声明的序列
+
+=== 54
+(a) while (string::iterator iter != s.end()) {}
+(b) while (bool status = find(word)) {}
+	if (!status) {}	// err: no variable status here

@@ -1,0 +1,6 @@
+void print(const int ia[10])
+{
+	for (size_t i = 0; i != 10; ++i) {	// ia[10] is not always 10 val
+		cout << ia[i] << endl;
+	}
+}

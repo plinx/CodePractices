@@ -1,0 +1,5 @@
+beg 和 end 都为 iterator
+beg - end 结果为 difference_type
+beg + end 结果为 iterator
+故
+mid = beg + (end - beg)/2

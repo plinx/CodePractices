@@ -1,0 +1,3 @@
+int i = 42;
+void *p = &i;
+long *lp = &i;		// err type

@@ -1,0 +1,52 @@
+(a) 
+usigned aCnt = 0, eCnt = 0, iouCnt = 0;
+char ch = next_text();
+switch(ch) {
+//	case 'a': aCnt++;	// err: no break
+//	case 'e': eCnt++;	// -
+//	default: iouCnt++;	// -
+	case 'a': aCnt++;break;	// fix
+	case 'e': eCnt++;break;
+	default: iouCnt++;break;
+}
+(b)
+unsigned index = some_value();
+switch (index) {
+	case 1:
+		int ix = get_value();	
+		ivec[ix] = index;
+		break;
+	default:
+//		ix = ivec.size() - 1;	// undeclare value ix
+		int ix = ivec.size() - 1;	// fix
+		ivec[ix] = index;
+}
+(c)
+unsigned evenCnt = 0, oddCnt = 0;
+int digit = get_num() % 10;
+switch (digit) {
+//	case 1, 3, 5, 7, 9:		// err case
+	case 1: case 3: case 5: case 7: case 9:		// fix
+		oddCnt++;
+		break;
+//	case 2, 4, 6, 8, 10:	// err case
+	case 2: case 4: case 6: case 8: case 10:	// fix
+		evenCnt++;
+		break;
+}
+(d)
+//unsigned ival=512, jval=1024, kval=4096;
+unsigned const ival=512, jval=1024, kval=4096; // fix
+unsigned bufsize;
+unsigned swt = get_bufCnt();
+switch (swt) {
+case ival:		// case label must be a constexpr
+	bufsize = ival * sizeof(int);
+	break;
+case jval:		// case label must be a constexpr
+	bufsize = jval * sizeof(int);
+	break;
+case kval:		// case label must be a constexpr
+	bufsize = kval * sizeof(int);
+	break;
+}

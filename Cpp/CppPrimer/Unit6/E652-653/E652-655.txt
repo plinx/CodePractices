@@ -1,0 +1,37 @@
+=== 652
+void manip(int, int);
+double dobj;
+
+manip('a', 'z');	// char -> int
+manip(55.4, 56.4);	// double -> int
+
+=== 653
+(a)
+int calc(int&, int&);
+int calc(const int&, const int&);	// 精确匹配 const int &
+(b)
+int calc(char*, char*);
+int calc(const char*, const char*);	// 精确匹配 const char *
+(c)
+int calc(char*, char*);
+int calc(char* const, char* const);	// 不合法, char* 与 char* const 同类型
+
+=== 654
+int func(int, int);
+vector<int(*)(int, int)> pFunc;
+pFunc = func;
+
+=== 655
+int add(int, int);
+int del(int, int);
+int mul(int, int);
+int mod(int, int);
+
+vector<int(*)(int, int)> pFunc(4);
+pFunc[0] = add;
+pFunc[1] = del;
+pFunc[2] = mul;
+pFunc[3] = mod;
+
+
+

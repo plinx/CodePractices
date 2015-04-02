@@ -1,0 +1,19 @@
+(a)
+//do 	// whithout '{'
+do {
+	int v1, v2;
+		cout << "Please enter two numbers to sum:";
+		if (cin >> v1 >> v2)
+			cout << "Sum is : " << v1 + v2 << endl;
+//while (cin)	// without '}'
+} while (cin)
+
+(b)
+do {
+	// ...	can not use ival here
+} while (int ival = get_response());
+
+(c) 
+do {
+	int ival = get_response();
+} while (ival)	// ival is a local variable in while loop

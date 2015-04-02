@@ -1,0 +1,55 @@
+=== 1617
+声明成 typename 与 class 的参数类型没什么区别。
+当我们希望通知编译器一个名字表示类型时，必须使用关键字 typename，而不能使用 class。
+
+=== 1618
+a) 
+//template <typename T, U, typename V> void f1(T, U, V)
+template <typename T, typename U, typename V> void f1(T, U, V)
+
+b) 
+//template <typename T> T f2(int &T);
+template <typename T> T f2(int T&);
+
+c) 
+//inline template <typename T> T foo(T, unsigned int *)
+template <typename T> inline T foo(T, unsigned int *)
+
+d) 
+//template <typename T> f4(T, T);
+template <typename T> T f5(T, T);
+
+e) 
+//typedef char Ctype;
+typedef char C;
+template <typename Ctype> Ctype f5(Ctype a);
+
+=== 1619
+template <typename Value>
+ostream &print(Value &v, ostream &os)
+{
+	typedef typename Value::size_type size_type;
+	
+	auto it = v.begin();
+	for (size_type i = 0; i != v.end(); ++ i)
+	{
+		os << *it++ << " ";
+	}
+	os << endl;
+	
+	return os;
+}
+
+template <typename Value>
+ostream &print(Value &v, ostream &os)
+{
+	for (auto it = v.begin(); it != v.end(); ++ it)
+	{
+		os << *it << " ";
+	}
+	os << endl;
+	
+	return os;
+}
+
+

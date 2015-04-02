@@ -1,0 +1,4 @@
+﻿  Source.cpp
+Source.obj : error LNK2019: unresolved external symbol "public: virtual class Value __thiscall Value::addInt(class _int)const " (?addInt@Value@@UBE?AV1@V_int@@@Z) referenced in function "public: virtual class Value __thiscall _int::add(class Value)" (?add@_int@@UAE?AVValue@@V2@@Z)
+Source.obj : error LNK2019: unresolved external symbol "public: virtual class Value __thiscall Value::addStr(class _string)const " (?addStr@Value@@UBE?AV1@V_string@@@Z) referenced in function "public: virtual class Value __thiscall _string::add(class Value)" (?add@_string@@UAE?AVValue@@V2@@Z)
+H:\DreamCode\CppPrimer\CSE341\FP-OOP\Debug\FP-OOP.exe : fatal error LNK1120: 2 unresolved externals

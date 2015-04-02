@@ -1,0 +1,4 @@
+const string s = "Keep out!";
+for (auto &c : s) { /* ... */ }
+
+typeid(c) == typeid(const char)

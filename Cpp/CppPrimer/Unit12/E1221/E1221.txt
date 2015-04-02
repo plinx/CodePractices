@@ -1,0 +1,11 @@
+// better for understanding
+std::string& StrBlobPtr(deref() const
+{
+	auto p = check(curr, "dereference past end");
+	return (*p)[curr];
+}
+// bad
+std::string& StrBlobPtr(deref() const
+{
+	return (*check(curr, "dereference past end"))[curr];
+}

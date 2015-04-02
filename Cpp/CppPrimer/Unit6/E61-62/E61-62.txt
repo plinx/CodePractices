@@ -1,0 +1,17 @@
+=== 61
+实参是外部输入的参数，是形参的初始值
+形参是函数内部使用的参数，在调用函数时初始化
+
+=== 62
+(a)
+int f() {
+	string s;
+	// ...
+	return s;		// return type error
+}
+(b) 
+f2(int i) { /* ... */ }	// whithout return type
+(c)
+int calc(int v1, int v1) /* .. */ } // whitout '{'
+(d)
+double square(double x) return x * x;

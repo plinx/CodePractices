@@ -1,0 +1,28 @@
+=== 626
+int count_li(initalizer_list<int> li)
+{
+	int sum = 0;
+	for (auto &i : li) {
+		sum += i;
+	}
+	
+	return sum;
+}
+
+=== 627
+string
+
+=== 629
+应该声明成 常量引用类型 const reference
+
+=== 630
+str_subrange : function must return a value
+
+=== 631
+返回的引用是局部变量时，返回的引用无效；
+返回的常量的引用是局部临时量时，返回的引用无效。
+
+=== 632
+合法，作用是获取数组 ia 中特定的位置，并置为 i
+
+

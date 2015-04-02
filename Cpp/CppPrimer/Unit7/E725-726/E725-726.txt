@@ -1,0 +1,20 @@
+=== 725
+不能安全地操作默认版本。
+默认版本的 contents 未初始化。
+
+=== 726
+option 1
+class Sales_data {
+public:
+	double avg_price() const;
+};
+
+inline double Sales_data::avg_price() const;
+
+option 2
+class Sales_data {
+public:
+	inline double avg_price() const;
+};
+
+double Sales_data::avg_price() const;

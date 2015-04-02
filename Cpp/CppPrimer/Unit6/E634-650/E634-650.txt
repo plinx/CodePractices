@@ -1,0 +1,96 @@
+=== 634
+无变化
+
+=== 635
+val-- 在执行函数后才生效
+
+=== 636
+string (*func(string str))[10];
+
+=== 637
+(1) 
+typedef string Str[10];
+//using Str = string[10];
+Str *func(string str);
+(2)
+auto func(string str) -> string(*)[10];
+(3)
+string tmp[] = {1, 2, 3, 4, 5};
+decltype(tmp) *func(string str);
+
+=== 638
+decltype(odd) &arrRef(int i)
+{
+	return (i % 2) ? odd : even;
+}
+
+=== 639
+(a) 
+int calc(int, int);
+int calc(const int, const int);	// err: top-level const is useless
+(b) 
+int get();
+double get();	// err: only return type different
+(c)
+int *reset(int *);
+double *reset(double *);
+
+=== 640
+(a) int ff(int a, int b = 0, int c = 0);
+(b) char *init(int ht = 24, int wd, char bckgrnd);
+// default argument wd and bckgrnd shouldn't be null
+
+=== 641
+char *init(int ht, int wd = 80, char bckgrnd = ' ');
+(a) init();
+(b) init(24, 10);
+(c) init(14, '*');	// err: wd is int
+
+=== 642
+string make_plural(size_t ctr, const string &word = "s", const string &ending = "s");
+int main()
+{
+	cout << make_plural(1, "success", "es") << endl;
+	cout << make_plural(2, "success", "es") << endl;
+	cout << make_plural(1, "failure", "s") << endl;
+	cout << make_plural(2, "failure", "s") << endl;
+	return 0;
+}
+
+string make_plural(size_t ctr, const string &word, const string &ending)
+{
+	return (ctr > 1) ? word + ending : word;
+}
+
+=== 643
+(a) inline bool eq(const BigInt&, const BigInt&) { ... }	
+// source file, this function is a prototype
+(b) void putValues(int *arr, int size);	
+// header file, this function is a declera
+
+=== 644
+inline bool isShorter(const string &s, cosnt string &s2)
+{
+	return s1.size() < s2.size();
+}
+
+=== 645
+不能，string &s1, string &s2 不是常量表达式，所以
+s1.size(), s2.size() 也不是常量表达式
+
+=== 648
+string s;
+while (cin >> s && s != sought) {}
+assert(cin);	// err: out of while
+
+=== 649
+候选函数：1) 与被调用函数同名 2) 其声明在调用点可见
+可行函数：1) 形参数量与本次调用提供的实参数量相等
+		  2) 每个实参的类型与对应的形参类型相同，或者能转换成形参的类型
+		  
+=== 650
+(a) f(2.56, 42)		//二义性
+(b) f(42)			// f(int)
+(c) f(42, 0) 		// f(int, int)
+(d) f(2.56, 3.14) 	// f(double, double)
+

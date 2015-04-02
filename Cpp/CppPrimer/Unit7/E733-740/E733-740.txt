@@ -1,0 +1,73 @@
+=== 733
+//pos Screen::size() const
+Screen::pos Screen::size() const
+{
+	return height * width;
+}
+
+=== 734
+'pos' is undefined.
+
+=== 735 
+typedef std::string Type;
+Type initVal();
+class Ex {
+public:
+	typedef double Type;
+	Type setVal(Type);		// use in-class Type
+	Type initVal();
+private:
+	int val;
+};
+//Type Ex::setVal(Type parm) {	
+Ex::Type Ex::setVal(Type parm) {	// use in-class Type	
+	val = parm + initVal();			// use in-class initVal
+	return val;
+}
+
+=== 736
+struct X {
+//	X (int i, int j): base(i), rem(base % j) {}
+	X (int i, int j): rem(i % j), base(i) {}
+	int rem, base;
+};
+
+=== 737
+class Sales_data {
+public:
+	Sales_data(std::string s=""): bookNo(s) {}	// 1
+	Sales_data(std::string s, unsigned cnt, double rev) : // 2
+		bookNo(s), unist_sold(cnt), revenue(rev * cnt) {}
+	Sales_data(std::istream &is) { read(is, *this); }	// 3
+	// ...
+};
+
+Sales_data first_item(cin); 	// -> 3
+
+int main()
+{
+	Sales_data next;	// -> 1
+	Sales_data last("9-999-99999-9");	// -> 1
+}
+
+=== 738
+class Sales_data {
+public:
+	Sales_data(std::string s=""): bookNo(s) {}	// 1
+	Sales_data(std::string s, unsigned cnt, double rev) : // 2
+		bookNo(s), unist_sold(cnt), revenue(rev * cnt) {}
+	Sales_data(std::istream &is = std::cin) { read(is, *this); }	// 3
+	// ...
+};
+
+=== 739
+不合法，当无实参时产生二义
+
+=== 740
+class Employee {
+public:
+	Employee(std::string n, int i) : name(n), id(i) {}
+private:
+	std::string name;
+	int id;
+};

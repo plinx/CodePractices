@@ -1,0 +1,11 @@
+// auto will ignore top-level const
+int i = 0, &r = i;
+auto a = r;		// a - int
+const int ci = i, &cr = ci;
+auto b = ci;	// b - int
+auto c = cr;	// c - int
+auto d = &i;	// d - int *
+auto e = &ci;	// e - const int *
+const auto f = ci; 	// f - const int
+auto &g = ci; 	// g - const refer
+auto &h = 42;	// err: h - const refer can't refer to var

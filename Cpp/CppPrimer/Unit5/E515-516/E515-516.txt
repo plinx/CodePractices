@@ -1,0 +1,28 @@
+=== 515
+(a)
+for (int ix = 0; ix != sz; ++ix) { /* .. */ }
+if (ix != sz)
+	// ix is a variable in for loop
+	
+(b) 
+int ix;
+for (ix != sz; ++ix) { /* err: without initializer */ }
+(c)
+for (int ix = 0; ix != sz; ++ix, ++sz) { /* .. */ }
+// both ix and sz "++"
+
+=== 516
+while (i < 3) {
+	++i;
+}
+==> to for
+for (int i = 0; i < 3; ++i) 
+
+-------
+for (int i = 0; i < 3; ++i, ++ix)
+
+==> to while
+while (i < 3) {
+	++i;
+	++ix;
+}

@@ -1,0 +1,109 @@
+﻿Build started 2014/12/10 1:47:59.
+     1>Project "H:\DreamCode\CppPrimer\Unit11\E119-1110\E119-1110\E119-1110.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         Source.cpp
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef(193): error C2784: 'bool std::operator <(const std::tuple<_Types...> &,const std::tuple<_Types1...> &)' : could not deduce template argument for 'const std::tuple<_Types...> &' from 'const std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\tuple(480) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef(192) : while compiling class template member function 'bool std::less<_Kty>::operator ()(const _Ty &,const _Ty &) const'
+                 with
+                 [
+                     _Kty=std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>
+         ,            _Ty=std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(521) : see reference to function template instantiation 'bool std::less<_Kty>::operator ()(const _Ty &,const _Ty &) const' being compiled
+                 with
+                 [
+                     _Kty=std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>
+         ,            _Ty=std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(572) : see reference to class template instantiation 'std::less<_Kty>' being compiled
+                 with
+                 [
+                     _Kty=std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xtree(1023) : see reference to class template instantiation 'std::is_empty<std::less<_Kty>>' being compiled
+                 with
+                 [
+                     _Kty=std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\map(70) : see reference to class template instantiation 'std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>' being compiled
+                 with
+                 [
+                     _Kty=std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>
+         ,            _Ty=int
+         ,            _Pr=std::less<std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>>
+         ,            _Alloc=std::allocator<std::pair<const std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>,int>>
+                 ]
+                 h:\dreamcode\cppprimer\unit11\e119-1110\e119-1110\source.cpp(15) : see reference to class template instantiation 'std::map<std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>,int,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' being compiled
+                 with
+                 [
+                     _Kty=std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>
+         ,            _Ty=int
+                 ]
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\tuple(480) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\tuple(480) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\tuple(480) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\tuple(480) : see declaration of 'std::operator <'
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef(193): error C2784: 'bool std::operator <(const std::_Tree<_Traits> &,const std::_Tree<_Traits> &)' : could not deduce template argument for 'const std::_Tree<_Traits> &' from 'const std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xtree(2259) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xtree(2259) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xtree(2259) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xtree(2259) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xtree(2259) : see declaration of 'std::operator <'
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef(193): error C2784: 'bool std::operator <(const std::list<_Ty,_Alloc> &,const std::list<_Ty,_Alloc> &)' : could not deduce template argument for 'const std::list<_Ty,_Alloc> &' from 'const std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\list(1958) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\list(1958) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\list(1958) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\list(1958) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\list(1958) : see declaration of 'std::operator <'
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef(193): error C2784: 'bool std::operator <(const std::vector<_Ty,_Alloc> &,const std::vector<_Ty,_Alloc> &)' : could not deduce template argument for 'const std::vector<_Ty,_Alloc> &' from 'const std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(1813) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(1813) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(1813) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(1813) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(1813) : see declaration of 'std::operator <'
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef(193): error C2784: 'bool std::operator <(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem *)' : could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'const std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2545) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2545) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2545) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2545) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2545) : see declaration of 'std::operator <'
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef(193): error C2784: 'bool std::operator <(const _Elem *,const std::basic_string<_Elem,_Traits,_Alloc> &)' : could not deduce template argument for 'const _Elem *' from 'const std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2535) : see declaration of 'std::operator <'
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef(193): error C2784: 'bool std::operator <(const std::basic_string<_Elem,_Traits,_Alloc> &,const std::basic_string<_Elem,_Traits,_Alloc> &)' : could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'const std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2525) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2525) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2525) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2525) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2525) : see declaration of 'std::operator <'
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef(193): error C2784: 'bool std::operator <(const std::move_iterator<_RanIt> &,const std::move_iterator<_RanIt2> &)' : could not deduce template argument for 'const std::move_iterator<_RanIt> &' from 'const std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1997) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1997) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1997) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1997) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1997) : see declaration of 'std::operator <'
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef(193): error C2784: 'bool std::operator <(const std::reverse_iterator<_RanIt> &,const std::reverse_iterator<_RanIt2> &)' : could not deduce template argument for 'const std::reverse_iterator<_RanIt> &' from 'const std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1155) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1155) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1155) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1155) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1155) : see declaration of 'std::operator <'
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef(193): error C2784: 'bool std::operator <(const std::_Revranit<_RanIt,_Base> &,const std::_Revranit<_RanIt2,_Base2> &)' : could not deduce template argument for 'const std::_Revranit<_RanIt,_Base> &' from 'const std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(971) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(971) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(971) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(971) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(971) : see declaration of 'std::operator <'
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef(193): error C2784: 'bool std::operator <(const std::pair<_Ty1,_Ty2> &,const std::pair<_Ty1,_Ty2> &)' : could not deduce template argument for 'const std::pair<_Ty1,_Ty2> &' from 'const std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\utility(230) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\utility(230) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\utility(230) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\utility(230) : see declaration of 'std::operator <'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\utility(230) : see declaration of 'std::operator <'
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef(193): error C2676: binary '<' : 'const std::_List_iterator<std::_List_val<std::_List_simple_types<int>>>' does not define this operator or a conversion to a type acceptable to the predefined operator
+     1>Done Building Project "H:\DreamCode\CppPrimer\Unit11\E119-1110\E119-1110\E119-1110.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.01

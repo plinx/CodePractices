@@ -1,0 +1,9 @@
+=== 123
+push_back and pop_back will change element in StrBlob.
+They should not use const.
+
+=== 124
+because we use i = 0 in check.
+
+=== 125 
+don't know.

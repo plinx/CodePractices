@@ -1,0 +1,25 @@
+=== 935
+capacity 是当前已分配的内存空间
+size 是已适用的内存空间
+
+=== 936
+capacity >= size
+
+=== 937
+list 是链表，只有产生新元素才需要分配空间
+array 大小是固定的，所以不需要 capacity
+
+=== 939
+vector<string> svec;
+svec.reserve(1024);		// capacity = 1024
+string word;
+while (cin >> word)
+	svec.push_back(word);
+svec.resize(svec.size() + svec.size()/2);	// resize capacity
+
+=== 940
+Enter	Capacity
+256		256 + 128
+512		512 + 256
+1000	1000 + 500
+1048 	1048 + 524

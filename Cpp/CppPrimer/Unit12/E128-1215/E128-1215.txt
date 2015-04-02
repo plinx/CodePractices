@@ -1,0 +1,58 @@
+=== 128
+bool b() 
+{
+	int *p = new int;
+	// ...
+	return p;	// 错误，返回类型不匹配
+}
+
+=== 129
+int *q = new int(42), *r = new int(100); 
+// create pointer q and r
+r = q;	
+// r points to where q points to
+auto q2 = make_shared<int>(42), r2 = make_shared<int>(100);
+// create shared pointer q2 and r2
+r2 = q2;
+// r2 points to where q2 points to
+
+=== 1210
+shared_ptr<int> p(new int(42));
+//process(shared_ptr<int>(p));
+process(p);
+
+=== 1211
+process(shared_ptr<int>(p.get()));
+// at the end of process p will be deleted.
+
+== 1212
+auto p = new int();
+auto sp = make_shared<int>();
+(a) process(sp);	
+// delete sp at the end of process
+(b) process(new int());	
+// error : can not change int* to shared_ptr<int> in process
+(c) process(p);	
+// error : can not change int * to shared_ptr<int> in process
+(d) process(share_ptr<int>(p));
+// change p to shared_ptr<int>, then delete p at the end of process
+
+=== 1213
+auto sp = make_shraed<int>();	// create shared_ptr<int>
+auto p = sp.get();	// sp.get() return shared_ptr<int> but delete sp after get()
+delete p;	// undefine behavior, sp was deleted
+
+=== 1214
+void end_connection(connection *p) { disconnect(*p); }
+void f(destination &d)
+{
+	connection c = connect(&d);
+	shared_ptr<connection> sp(&c, end_connection);
+}
+
+=== 1215
+void f(destionation &d)
+{
+	connection c = connect(&d);
+	shared_ptr<connection> sp(&c, [&](connection *pc) { disconnect(*pc); })
+}

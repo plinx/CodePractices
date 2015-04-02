@@ -1,0 +1,21 @@
+=== 618
+(a) 名为 compare 的函数，返回布尔值，两个参数都是 matrix 类的引用
+bool compare(matrix ma, matrix mb);		// 比较两个数
+(b) 名为 change_val 的函数，返回 vector<int> 的迭代器，有两个参数：
+	一个是 int, 另一个是  vector<int> 的迭代器
+vector<int> change_val(int new_val, vector<int> vec);
+// 将新值插入 vec
+
+=== 619
+double calc(double);
+int count(const string &, char);
+int sum(vector<int>::iterator, vector<int>::iterator, int);
+(a) calc(23.4, 55.1);	// err: variables more than declare
+(b) count("abcde", 'a');
+(c) calc(66);
+(d) sum(vec.begin(), vec.end(), 3.8);
+// 3.8 is not int
+
+=== 620
+不改变形参内部值时，使用常量引用
+若应为常量引用而使用了普通引用，将在编译时报错

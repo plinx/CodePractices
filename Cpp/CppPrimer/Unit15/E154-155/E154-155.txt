@@ -1,0 +1,21 @@
+=== 154
+class Base { ... };
+
+(a) class Derived : public Derived { ... };
+不能继承自己。
+(b) class Derived : private Base { ... };
+继承类型错误，不能进继承 private。
+(c) class Derived : public Base;
+派生列表以及与定义有关的其他细节必须与类的主体一起出现。
+
+=== 155
+class Bulk_quote : class Quote {
+public:
+	Bulk_quote() = default;
+	Bulk_quote(const string &b, double p, size_t st, double d) :
+		Quote(b, p), min_qty(st), discount(d) {}
+	
+private:
+	size_t min_qty = 0;
+	double discount = 0.0;
+};

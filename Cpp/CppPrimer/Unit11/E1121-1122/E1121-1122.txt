@@ -1,0 +1,16 @@
+=== 1121
+map<string, size_t> word_count;
+string word;
+
+while (cin >> word)
+	++word_count.insert({word, 0}).first->second;
+
+// word_count.insert 返回 pair<iterator, bool>
+// .first 取出对应迭代器
+// ->second 取出迭代器对应的值 size_t
+// ++ 值加一
+
+=== 1122
+map<string, vector<int>> mstr;
+pair<string, vector<int>> psv = {"str", {1, 2}};
+mstr.insert(psv);

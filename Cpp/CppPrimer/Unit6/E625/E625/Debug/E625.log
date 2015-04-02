@@ -1,0 +1,12 @@
+﻿Build started 2014/11/9 19:50:56.
+     1>Project "H:\DreamCode\CppPrimer\Unit6\E625\E625\E625.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         Source.cpp
+     1>h:\dreamcode\cppprimer\unit6\e625\e625\source.cpp(11): error C2561: 'str_subrange' : function must return a value
+                 h:\dreamcode\cppprimer\unit6\e625\e625\source.cpp(4) : see declaration of 'str_subrange'
+     1>Done Building Project "H:\DreamCode\CppPrimer\Unit6\E625\E625\E625.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:03.26

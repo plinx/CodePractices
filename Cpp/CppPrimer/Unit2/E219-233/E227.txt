@@ -1,0 +1,7 @@
+(a) int i = -1, &r =0;			// err: r isn't refer to obj
+(b) int *const p2 = &i2;		// &i2 type?
+(c) const int i = -1, &r = 0; 	// err: same as (a)
+(d) const int *const p3 = &i2;	// same as (b)
+(e) const int *p1 = &i2;		// same as (b)
+(f) const int &const r2;		// err: r2 isn't refer to obj
+(g) const int i2 = i, &r = i; 	// err: i isn't const

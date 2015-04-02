@@ -1,0 +1,2 @@
+引用(reference)为对象起了灵位一个名字，引用类型引用(refers to)另外一种类型。
+指针(pointer)是"指向(points to)"另外一种类型的复合类型。

@@ -1,0 +1,10 @@
+(a) int* ip,i, &r = i;
+// ip - pointer - undefine
+// i - int - undefine
+// r - reference - i
+(b) int i, *ip = 0;
+// i - int - undefine
+// ip - pointer - NULL
+(c) int* ip, ip2;
+// ip - pointer - undefine
+// ip2 - int - undefine

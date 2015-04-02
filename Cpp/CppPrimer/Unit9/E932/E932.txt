@@ -1,0 +1,3 @@
+不合法;
+iter = vi.insert(iter, *iter++);
+*iter++ 的位移操作是发生在 vi.insert 之后的，此时 iter 已经失效
