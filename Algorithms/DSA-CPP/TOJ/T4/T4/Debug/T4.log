@@ -1,0 +1,3 @@
+﻿  Source.cpp
+h:\dreamcode\algorithms\dsa-cpp\toj\t4\t4\source.cpp(5): warning C4101: 'total' : unreferenced local variable
+  T4.vcxproj -> H:\DreamCode\Algorithms\DSA-CPP\TOJ\T4\Debug\T4.exe

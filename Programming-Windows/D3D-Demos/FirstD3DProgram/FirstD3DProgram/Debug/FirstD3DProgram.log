@@ -1,0 +1,16 @@
+﻿Build started 2015/1/17 23:54:30.
+     1>Project "H:\DreamCode\Programming-Windows\D3D-Demos\FirstD3DProgram\FirstD3DProgram\FirstD3DProgram.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt d3dInit.cpp d3dUtility.cpp
+         d3dUtility.cpp
+         d3dInit.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"H:\DreamCode\Programming-Windows\D3D-Demos\FirstD3DProgram\Debug\FirstD3DProgram.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx10d.lib d3dx9d.lib dxerr.lib dxguid.lib winmm.lib comctl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"H:\DreamCode\Programming-Windows\D3D-Demos\FirstD3DProgram\Debug\FirstD3DProgram.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:\DreamCode\Programming-Windows\D3D-Demos\FirstD3DProgram\Debug\FirstD3DProgram.lib" /MACHINE:X86 Debug\d3dInit.obj
+         Debug\d3dUtility.obj
+         FirstD3DProgram.vcxproj -> H:\DreamCode\Programming-Windows\D3D-Demos\FirstD3DProgram\Debug\FirstD3DProgram.exe
+     1>Done Building Project "H:\DreamCode\Programming-Windows\D3D-Demos\FirstD3DProgram\FirstD3DProgram\FirstD3DProgram.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:12.04

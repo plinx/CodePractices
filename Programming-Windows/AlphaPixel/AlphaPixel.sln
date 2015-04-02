@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlphaPixel", "AlphaPixel\AlphaPixel.vcxproj", "{AE654D6A-0556-4324-873B-84231C6A925D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE654D6A-0556-4324-873B-84231C6A925D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AE654D6A-0556-4324-873B-84231C6A925D}.Debug|Win32.Build.0 = Debug|Win32
+		{AE654D6A-0556-4324-873B-84231C6A925D}.Release|Win32.ActiveCfg = Release|Win32
+		{AE654D6A-0556-4324-873B-84231C6A925D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

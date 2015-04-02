@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pipes", "Pipes\Pipes.vcxproj", "{F51B63CA-6073-4E97-9800-D589960FAA92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F51B63CA-6073-4E97-9800-D589960FAA92}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F51B63CA-6073-4E97-9800-D589960FAA92}.Debug|Win32.Build.0 = Debug|Win32
+		{F51B63CA-6073-4E97-9800-D589960FAA92}.Release|Win32.ActiveCfg = Release|Win32
+		{F51B63CA-6073-4E97-9800-D589960FAA92}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
