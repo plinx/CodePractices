@@ -58,19 +58,65 @@ class cpt1(unittest.TestCase):
 
     # C1.13
     def test_reverse(self):
-        c = Craetivity()
+        c = Creativity()
         data, rdata = [1, 2, 3], [3, 2, 1]
         #print c.reverse(data)
         self.assertEqual(c.reverse(data), rdata)
 
     # C1.14
     def test_check_odd(self):
-        c = Craetivity()
+        c = Creativity()
         data = [2, 4, 6, 9]
         self.assertEqual(c.check_odd(data), True)
         data.pop(3)
         self.assertEqual(c.check_odd(data), False)
 
+    # C-1.15
+    def test_check_same(self):
+        c = Creativity()
+        table = [1, 2, 3, 4, 5]
+        self.assertEqual(c.check_same(table), False)
+        table.append(1)
+        self.assertEqual(c.check_same(table), True)
+
+    # C-1.20
+    def test_shuffle(self):
+        c = Creativity()
+        t, table = [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]
+        self.assertNotEqual(c.shuffle(table), t)
+
+    # C-1.22
+    def test_mul_array(self):
+        c = Creativity()
+        t1, t2, t3 = [1, 2, 3], [2, 2, 2], [2, 4, 6]
+        self.assertEqual(c.mul_array(t1, t2), t3)
+
+    # C-1.24
+    def test_count_vowels(self):
+        c = Creativity()
+        s = "abcde"
+        self.assertEqual(c.count_vowels(s), 2)
+
+    # C-1.25
+    def test_remove_punctiation(self):
+        c = Creativity()
+        pstr, npstr = "a, b.", "a b"
+        self.assertEqual(c.remove_punctuation(pstr), npstr)
+
+    # C-1.27
+    def test_fib(self):
+        c = Creativity()
+        f = c.fib(5)
+        self.assertEqual(f.next(), 1)
+        self.assertEqual(f.next(), 1)
+        self.assertEqual(f.next(), 2)
+        self.assertEqual(f.next(), 3)
+        self.assertEqual(f.next(), 5)
+
+    # C-1.28
+    def test_norm(self):
+        c = Creativity()
+        self.assertEqual(c.norm([3, 4], 2), 5)
 
 if __name__ == '__main__':
     unittest.main()
