@@ -4,11 +4,12 @@
 # import packages
 import unittest
 from inc.test import Test
-from chapter1.R import Reinforcememt
+from chapter1.P import Project
 
 
 def main():
-    Test().hello()
+    p = Project()
+    p.calculator()
 
 if __name__ == '__main__':
     main()

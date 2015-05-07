@@ -3,6 +3,7 @@ __author__ = 'linx'
 import unittest
 from chapter1.R import *
 from chapter1.C import *
+from chapter1.P import *
 
 # chapter1 test
 class cpt1(unittest.TestCase):
@@ -71,7 +72,7 @@ class cpt1(unittest.TestCase):
         data.pop(3)
         self.assertEqual(c.check_odd(data), False)
 
-    # C-1.15
+    # C1.15
     def test_check_same(self):
         c = Creativity()
         table = [1, 2, 3, 4, 5]
@@ -79,31 +80,31 @@ class cpt1(unittest.TestCase):
         table.append(1)
         self.assertEqual(c.check_same(table), True)
 
-    # C-1.20
+    # C1.20
     def test_shuffle(self):
         c = Creativity()
         t, table = [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]
         self.assertNotEqual(c.shuffle(table), t)
 
-    # C-1.22
+    # C1.22
     def test_mul_array(self):
         c = Creativity()
         t1, t2, t3 = [1, 2, 3], [2, 2, 2], [2, 4, 6]
         self.assertEqual(c.mul_array(t1, t2), t3)
 
-    # C-1.24
+    # C1.24
     def test_count_vowels(self):
         c = Creativity()
         s = "abcde"
         self.assertEqual(c.count_vowels(s), 2)
 
-    # C-1.25
+    # C1.25
     def test_remove_punctiation(self):
         c = Creativity()
         pstr, npstr = "a, b.", "a b"
         self.assertEqual(c.remove_punctuation(pstr), npstr)
 
-    # C-1.27
+    # C1.27
     def test_fib(self):
         c = Creativity()
         f = c.fib(5)
@@ -113,10 +114,28 @@ class cpt1(unittest.TestCase):
         self.assertEqual(f.next(), 3)
         self.assertEqual(f.next(), 5)
 
-    # C-1.28
+    # C1.28
     def test_norm(self):
         c = Creativity()
         self.assertEqual(c.norm([3, 4], 2), 5)
+
+    # Project test should be test in main.py
+    # P1.29
+    def test_str_perm(self):
+        p = Project()
+        table = ['c', 'a', 't', 'd', 'o', 'g']
+        #p.str_perm(table, 0)
+
+    # P1.30
+    def test_divide_bytwo(self):
+        p = Project()
+        #print p.divide_two(2)
+
+    # P1.32
+    def test_calculator(self):
+        p = Project()
+        #p.calculator()
+
 
 if __name__ == '__main__':
     unittest.main()
