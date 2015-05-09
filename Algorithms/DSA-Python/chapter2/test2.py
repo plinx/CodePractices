@@ -28,3 +28,5 @@ class cpt2(unittest.TestCase):
         #cc.make_payment(-1)
 
 
+if __name__ == '__main__':
+    unittest.main()
