@@ -4,13 +4,13 @@
 # import packages
 import unittest
 from inc.test import Test
-from chapter1.P import Project
-from chapter3.R import Reinforcement
+from chapter4.C import Creativity
 
 
 def main():
-    r = Reinforcement()
-    print r.cmp1()
+    c = Creativity()
+    table = [1, 2]
+    c.subsets(table)
 
 if __name__ == '__main__':
     main()

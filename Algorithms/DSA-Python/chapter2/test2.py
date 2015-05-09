@@ -1,9 +1,7 @@
 __author__ = 'linx'
 
 import unittest
-from chapter2.R import *
-#from chapter2.C import *
-#from chapter2.P import *
+from chapter2.R import Reinforcement
 
 class cpt2(unittest.TestCase):
     # R2.4 test
