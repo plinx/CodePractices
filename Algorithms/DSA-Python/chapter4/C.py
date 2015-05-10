@@ -163,7 +163,18 @@ class Creativity(object):
     # C4.20
     # same as C4.19, running time O(n)
 
-    # sleep now.
+    """ C4.21
+    sequence S, len(S) = n
+    def sumk(self, S, start) => return [left index, right index]
+    -> sumk(S, 0) | T(n) = n - 1 + T(n - 1)
+    -> sumk(S, 1) | T(n - 1) = n - 2 + T(n - 2)
+    => T(n) = 1/2 * (n - 1) * n
+    => running time : O(n^2)
+    """
+
+    # C4.22
+    # skip
+
 
 
     pass
