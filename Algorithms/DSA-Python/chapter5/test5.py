@@ -2,6 +2,7 @@ __author__ = 'linx'
 
 import unittest
 from chapter5.R import Reinforcement
+from chapter5.C import Creativity
 
 class cpt5(unittest.TestCase):
     # R5.4, R5.6, R5.8
@@ -21,6 +22,12 @@ class cpt5(unittest.TestCase):
         r = Reinforcement()
         table = [1, 3, 5, 2, 4, 1, 9]
         self.assertEqual(r.find_repeated(table), 1)
+
+    # C5.25
+    def test_remove_all(self):
+        c = Creativity()
+        table = [1, 3, 5, 2, 4, 1, 9]
+        self.assertEqual(c.remove_all(table, 1), [3, 5, 2, 4, 9])
 
     pass
 

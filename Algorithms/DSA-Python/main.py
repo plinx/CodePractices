@@ -8,7 +8,7 @@ from chapter5.C import Creativity
 
 def main():
     c = Creativity()
-    c.nonempty()
+    c.str_efficiency()
 
 if __name__ == '__main__':
     main()
