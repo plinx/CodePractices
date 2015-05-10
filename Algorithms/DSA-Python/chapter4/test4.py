@@ -47,12 +47,6 @@ class cpt4(unittest.TestCase):
         table = [1, 2, 1, 3, 5, 2, 4]
         self.assertEqual(c.left_even(table), [4, 2, 2, 3, 5, 1, 1])
 
-
-
-
-
-
-
     pass
 
 if __name__ == '__main__':
