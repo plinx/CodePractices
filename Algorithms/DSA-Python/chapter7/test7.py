@@ -102,8 +102,6 @@ class cpt7(unittest.TestCase):
         self.assertEqual(nl._next._elem, 2)
         self.assertEqual(nl._next._next._elem, 3)
 
-
-
     pass
 
 if __name__ == '__main__':
