@@ -1,9 +1,9 @@
 __author__ = 'linx'
 
 import unittest
-from inc.ArrayStack import ArrayStack
-from inc.ArrayQueue import ArrayQueue
-from inc.ArrayDeque import ArrayDeque
+from inc.arraystack import ArrayStack
+from inc.arrayqueue import ArrayQueue
+from inc.arraydeque import ArrayDeque
 from chapter6.C import Creativity
 
 class cpt6(unittest.TestCase):

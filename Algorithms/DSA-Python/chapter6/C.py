@@ -1,7 +1,7 @@
 __author__ = 'linx'
 
-from inc.ArrayStack import ArrayStack
-from inc.ArrayQueue import ArrayQueue
+from inc.arraystack import ArrayStack
+from inc.arrayqueue import ArrayQueue
 from time import time
 
 class Creativity(object):

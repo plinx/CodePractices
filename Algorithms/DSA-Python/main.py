@@ -2,8 +2,8 @@
 # -*- coding : utf-8 -*-
 
 # packages
-from inc.ArrayStack import ArrayStack
-from inc.ArrayQueue import ArrayQueue
+from inc.arraystack import ArrayStack
+from inc.arrayqueue import ArrayQueue
 from chapter6.C import Creativity
 
 
