@@ -1,0 +1,12 @@
+# comments
+def hello(text) {
+    # hello comments
+    print "hello " +text
+}
+
+def main() {
+    hello("world.")
+    #for (i = 0:10) {
+    #    print i
+    #}
+}
