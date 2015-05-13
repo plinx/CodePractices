@@ -1,12 +1,16 @@
 # comments
-def hello(text) {
+#def hello(text) {
     # hello comments
-    print "hello " +text
-}
-
-def main() {
-    hello("world.")
+#    print "hello " +text
+#}
+#
+#def main() {
+    a = 5.2
+    b = 5.2 + 5
+    c = a
+    c = a + b
+#    hello("world.")
     #for (i = 0:10) {
     #    print i
     #}
-}
+#}

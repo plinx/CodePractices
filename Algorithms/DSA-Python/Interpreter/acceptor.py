@@ -2,7 +2,6 @@ __author__ = 'linx'
 
 from abc import ABCMeta, abstractmethod
 from re import match
-from tokenizer import Tokenizer
 
 class Acceptor(object):
     __metaclass__ = ABCMeta
@@ -17,15 +16,17 @@ class Dispatch(Acceptor):
 
     def _regex_type(self, value):
         if match("[a-zA-Z]", value):
-            return Variable(value)
+            return String(value)
         if match("[0-9]", value):
             return Constant(value)
-        if match("[=]", value):
-            return EqualSign(value)
-        if match("[\[\]{}]", value):
+        if match("[+\-*/=]", value):
+            return Operator(value)
+        if match("[\[\]{}()\"]", value):
             return Scope(value)
-        if match("\\\n", value):
+        if match("\\n", value):
             return EOL(value)
+        print value
+        print "no match"
 
     def accept(self, visitor):
         if self._index != len(self._data):
@@ -37,12 +38,36 @@ class Dispatch(Acceptor):
     def prpr(self):
         print "prpr"
 
-class Variable(Acceptor):
+class String(Acceptor):
     def __init__(self, data):
         self._data = data
 
     def accept(self, visitor):
-        print "Variable : %s " % self._data
+        #print "String : %s " % self._data
+        if visitor.state in ["start", "normal"]:
+            print "!! State : %s ==> " % visitor.state,
+            visitor.tmp = self._data
+            print visitor.vars
+        elif visitor.state == "assign":
+            print "State : %s ==> " % visitor.state,
+            visitor.function[visitor.tmp].var = visitor.tmp
+            visitor.function[visitor.tmp].op = "="
+            visitor.function[visitor.tmp].value = str(visitor.vars[self._data])
+            visitor.vars[visitor.tmp] = visitor.function[visitor.tmp].value
+            visitor.state = "assigned"
+            visitor.function[visitor.tmp].travel()
+        elif visitor.state == "assigned":
+            print "State : %s ==> " % visitor.state,
+            #visitor.function[visitor.tmp].var = self._dat
+            visitor.function[visitor.tmp].op = "+"
+            visitor.function[visitor.tmp].value = str(visitor.vars[self._data])
+            visitor.vars[visitor.tmp] = \
+                str(float(visitor.function[visitor.tmp].var) +
+                        float(visitor.function[visitor.tmp].value))
+            visitor.state = "assigned"
+            visitor.function[visitor.tmp].travel()
+            print ""
+            print visitor.vars
         visitor.next()
 
 class Constant(Acceptor):
@@ -50,15 +75,34 @@ class Constant(Acceptor):
         self._data = data
 
     def accept(self, visitor):
-        print "Constant : %s "
+        #print "Constant : %s " % self._data
+        print "State : %s ==> " % visitor.state,
+        if visitor.state == "assign":
+            visitor.vars[visitor.tmp] = self._data
+            visitor.function[visitor.tmp].var = visitor.tmp
+            visitor.function[visitor.tmp].op = "="
+            visitor.function[visitor.tmp].value = self._data
+            visitor.state = "assigned"
+            visitor.function[visitor.tmp].travel()
+        elif visitor.state == "assigned":
+            visitor.vars[visitor.tmp] = str(float(self._data) +
+                                            float(visitor.vars[visitor.tmp]))
+            visitor.function[visitor.tmp].value = self._data
+            visitor.function[visitor.tmp].travel()
         visitor.next()
 
-class EqualSign(Acceptor):
+class Operator(Acceptor):
     def __init__(self, data):
         self._data = data
 
     def accept(self, visitor):
-        print "EqualSign : %s " % self._data
+        #print "Operator : %c " % self._data
+        if visitor.state in ["start", "normal"]:
+            visitor.state = "assign"
+            visitor.function[visitor.tmp] = visitor.template("assigntree")
+        elif visitor.state == "assigned":
+            visitor.function[visitor.tmp].add_sub()
+            visitor.function[visitor.tmp].op = self._data
         visitor.next()
 
 class Scope(Acceptor):
@@ -74,6 +118,8 @@ class EOL(Acceptor):
         self._data = data
 
     def accept(self, visitor):
-        print "End of Line : \\n"
+        visitor.state = "normal"
+        print ""
+        #print "End of Line : \\n"
         visitor.next()
 

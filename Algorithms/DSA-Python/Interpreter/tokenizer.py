@@ -89,7 +89,7 @@ class Tokenizer(object):
                                 self._tokens.append(lines[start:index])
                             self.debug_print("'\\n'")
                             self.debug_print("\n")
-                            self._tokens.append("\\n")
+                            self._tokens.append("\n")
                         if lines[previ] == ' ' or lines[previ] in symbol:
                             start = index
 
