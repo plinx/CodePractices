@@ -19,7 +19,7 @@ class MapBase(MutableMapping):
             return self._key < other._key
 
 
-class UnsortedTebleMap(MapBase):
+class UnsortedTableMap(MapBase):
     def __init__(self):
         self._table = []
 
