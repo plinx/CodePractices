@@ -205,6 +205,9 @@ class AVLTree(TreeBase):
             return self._root
 
 
+class RBTree(object):
+    pass
+
 
 
 
