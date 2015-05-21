@@ -203,14 +203,9 @@ class AVLTree(TreeBase):
             pos._right = self._root._left
             self._root._left = pos
             return self._root
-
-
-class RBTree(object):
     pass
 
-
-
-
+class RBTree(object):
 
     pass
 
