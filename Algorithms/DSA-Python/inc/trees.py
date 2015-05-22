@@ -206,6 +206,12 @@ class AVLTree(TreeBase):
     pass
 
 class RBTree(object):
-
+    class _Node(object):
+        def __init__(self, elem, left, right, p):
+            self._elem = elem
+            self._left = left
+            self._right = right
+            self._p = p
+        pass
     pass
 
