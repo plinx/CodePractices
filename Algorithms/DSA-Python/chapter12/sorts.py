@@ -97,4 +97,37 @@ class Sorts(object):
 
         pass
 
+    def arr_quickSort(self, S):
+        n = len(S)
+        if n < 2:
+            return
+        pivot = S[0]
+        lt = []
+        gt = []
+        for i in xrange(1, n):
+            if S[i] < pivot:
+                lt.append(S[i])
+            else: # S[i] >= pivot
+                gt.append(S[i])
+
+        #print lt, gt
+        self.arr_quickSort(lt)
+        self.arr_quickSort(gt)
+
+        nlt = len(lt)
+        for i in xrange(n):
+            if i < nlt:
+                S[i] = lt[i]
+            elif i > nlt:
+                S[i] = gt[i - nlt - 1]
+            else: # i == len(lt)
+                S[i] = pivot
+        #S[0:len(lt) - 1] = lt
+        #S[len(lt)] = lt
+        #S[len(lt) + 1:n] = gt
+
+
+
+
+
     pass
