@@ -44,9 +44,12 @@ class cpt12(TestCase):
         for i in xrange(10000):
             t.append(randint(1, 10000))
 
+        oldt = t
         start = time()
         s.arr_quickSort(t)
         print "arrQuick sort : %s" % (time() - start)
+        oldt.sort()
+        self.assertEqual(t, oldt)
         #print t
 
     pass
