@@ -1,0 +1,98 @@
+Error 1：
+两端内存重复，memcpy 可能导致未定义行为，使用 memmove 可以避免，补充代码。
+#include <iostream>
+using namespace std；
+void* memmove(void* str1, const void* str2, size_t n)
+{
+	char* pStr1 = (char*)str1;
+	const char* pStr2 = (char*)str2;
+	if (__?__) 
+	{
+		for(size_t i = 0; i != n; ++i)
+		{
+			*(pStr1++) = *(pStr2++)
+		}
+	}
+	else
+	{
+		pStr1 += n - 1;
+		pStr2 += n - 1;
+		for (size_t i = 0; i != n; ++i)
+		{
+			*(pStr1--) = *(pStr2--);
+		}
+	}
+	return (__?__)
+}
+
+A) pStr1 < pStr2; str1
+B) pStr1 + n < pStr2; str2
+C) pStr1 + n < pStr2 || pStr2 + n < pStr1; str2
+D) pStr2 + n < pStr1; str1
+
+**Analysis**
+Case1: pStr1 < pStr2, copy safely
+pStr1
+^===========
+     pStr2 or
+	 ^============
+			 pStr2
+ 			 ^============
+Case2: pStr1 < pStr2, copy from end point is safe
+pStr2
+^============
+     pStr1 or
+	 ^============
+			  pStr1
+			  ^============
+Ans 1 : A			  
+	
+Error 2:	
+class A
+{
+	int a;		
+	short b;	
+	int c;		
+	char d;		
+};
+class B
+{
+	double a;	
+	short b;	
+	int c;		
+	char d;		
+};
+sizeof(A), sizeof(B)是多少？
+
+A) 12 16
+B) 12 12
+C) 16 24
+D) 16 20
+
+**Analysis**
+class A
+{
+	int a;		// 4
+	short b;	// 2 => 4
+	int c;		// 4
+	char d;		// 2 => 4
+};
+class B
+{
+	double a;	// 8
+	short b;	// 2 => 4
+	int c;		// 4
+	char d;		// 1 => 8
+};
+Ans 2 : C
+
+Error 3:
+下面有关继承、多态、组合的描述，说法错误的是?
+A) 封装，把客观事物封装成抽象类，并且类可以把自己的数据和方法只让可信的类或者对象操作，
+对不可信的进行信息隐藏
+B) 继承可以使用现有类的所有功能，并在无需重新编写原来类的情况下对这些功能进行拓展
+C) 隐藏是指派生类的函数把基类中相同名字的函数屏蔽掉了
+D) 覆盖是指不同的函数使用相同的函数名，但是函数的参数个数或者类型不同
+
+**Analysis**
+			 
