@@ -6,15 +6,12 @@ void* memmove(void* str1, const void* str2, size_t n)
 {
 	char* pStr1 = (char*)str1;
 	const char* pStr2 = (char*)str2;
-	if (__?__) 
-	{
+	if (__?__) {
 		for(size_t i = 0; i != n; ++i)
 		{
 			*(pStr1++) = *(pStr2++)
 		}
-	}
-	else
-	{
+	} else {
 		pStr1 += n - 1;
 		pStr2 += n - 1;
 		for (size_t i = 0; i != n; ++i)
@@ -45,7 +42,7 @@ pStr2
 	 ^============
 			  pStr1
 			  ^============
-Ans 1 : A			  
+Ans 1: A			  
 	
 Error 2:	
 class A
@@ -84,7 +81,7 @@ class B
 	int c;		// 4
 	char d;		// 1 => 8
 };
-Ans 2 : C
+Ans 2: C
 
 Error 3:
 下面有关继承、多态、组合的描述，说法错误的是?
@@ -95,4 +92,204 @@ C) 隐藏是指派生类的函数把基类中相同名字的函数屏蔽掉了
 D) 覆盖是指不同的函数使用相同的函数名，但是函数的参数个数或者类型不同
 
 **Analysis**
+A) 正确
+B) 现有类的所有功能，正确，若表述为可以使用基类（原来类）的所有功能则错误
+C) 当基类中一函数声明为虚函数时，派生类的同名、同参数个数、同返回类型的函数将隐藏基类的函数
+D) 当基类中一函数不为虚函数，派生类的同名、同参数个数、同返回类型的函数将覆盖基本的函数
+
+重载：基类、派生类函数同名、参数个数不同、返回类型不同的函数称为重载
+
+Ans 3: D
+
+Error 4 :
+class Base
+{
+public:
+	Base(int j): i(j) {}
+	virtual ~Base() {}
+	void func1() { i *= 10; func2(); }
+	int getValue() { return i; }
+protected:
+	virtual void func2() { i++; }
+	int i;
+};
+class Child : public Base {
+public:
+	Child(int j): Base(j) {}
+	void func1() { i *= 100; func2(); }
+protected:
+	void func2() { i += 2; }
+};
+
+int main()
+{
+	Base* pb = new Child(1);
+	pb->func1();
+	cout << pb->getValue() << endl; 
+	delete pb;
+}
+
+输出什么？
+A) 11 B) 101 C) 12 D) 102
+
+**Analysis**
+Base* pb = new Child(1);
+func1() 不是虚函数，所有 pb->func1 调用基类 func1
+func2() 是虚函数，调用 pb 指向的派生类的函数 func2
+
+Ans 4: C
+
+Error 5:
+下列对静态成员的描述中，正确的是？
+A) 精调数据成员可以在类体内进行初始化
+B) 静态数据成员不可以被类对象调用
+C) 静态数据成员不受 private 控制符作用
+D) 静态数据成员可以直接使用类名调用
+
+**Analysis**
+static数据成员必须在类体之外进行定义。通常在定义时才进行初始化。
+但是，当类型为const static时的整形时可以在类体内进行初始化。
+因此A有正确的地方，但是也有错误的情况，因此不选A。
+
+Ans 5: D
+
+Error 6:
+class A  
+{  
+public:  
+    A()  {}  
+    ~A() { cout<<"~A"<<endl; }  
+};  
+   
+class B:public A  
+{  
+public:  
+    B(A &a):_a(a) {}
+    ~B() { cout<<"~B"<<endl; }  
+private:  
+    A _a;  
+};  
+       
+int main(void)  
+{  
+    A a;
+    B b(a); 
+}
+
+输出是什么？
+
+A) ~B
+B) ~B ~A
+C) ~B ~A ~A
+D) ~B ~A ~A ~A
+
+**Analysis**
+int main(void)
+{
+	A a;		// Create A
+	B b(a);		// Create B(derived from A) and A _a
+} 				// Destruction
+
+Constructor:
+outter A => inner A => B derived from A
+Deconstructor:
+B => inner A => Base class A => outter A
+
+Ans 6: D
+
+Error 7:
+C++类体系中，不能被派生类继承的有？
+A) 构造函数
+B) 静态成员函数 
+C) 非静态成员函数
+D) 赋值操作函数
+
+**Analysis**
+编译器总是根据类型来调用类成员函数。但是一个派生类的指针可以安全地转化为一个基类的指针。这样删除一个基类的指针的时候，C++不管这个指针指向一个基类对象还是一个派生类的对象，调用的都是基类的析构函数而不是派生类的。如果你依赖于派生类的析构函数的代码来释放资源，而没有重载析构函数，那么会有资源泄漏。所以建议的方式是将析构函数声明为虚函数。
+一个函数一旦声明为虚函数，那么不管你是否加上virtual 修饰符，它在所有派生类中都成为虚函数。但是由于理解明确起见，建议的方式还是加上virtual 修饰符。
+
+构造原则如下：
+1. 如果子类没有定义构造方法，则调用父类的无参数的构造方法。
+2. 如果子类定义了构造方法，不论是无参数还是带参数，在创建子类的对象的时候,首先执行父类无参数的构造方法，然后执行自己的构造方法。
+3. 在创建子类对象时候，如果子类的构造函数没有显示调用父类的构造函数，则会调用父类的默认无参构造函数。
+4. 在创建子类对象时候，如果子类的构造函数没有显示调用父类的构造函数且父类自己提供了无参构造函数，则会调用父类自己的无参构造函数。
+5. 在创建子类对象时候，如果子类的构造函数没有显示调用父类的构造函数且父类只定义了自己的有参构造函数，则会出错（如果父类只有有参数的构造方法，则子类必须显示调用此带参构造方法）。
+
+Ans 7: A
+
+Error 8:
+下列有关 malloc 和 new，说法错误的是？
+A) new 建立一个对象，malloc 分配一块内存
+B) new 初始化对象，调用构造函数，对应 delete 调用析构函数， malloc 仅仅分配内存，对应 free 仅仅回收内存
+C) new 和 malloc 都是保留字，不需要头文件支持
+D) new 和 malloc 都可用于申请动态内存，new 是一个操作符，malloc 是一个函数
+
+**Analysis**
+C) malloc 包含在 stdlib.h 或 malloc.h 中
+Ans 8: C
+
+Error 9:
+下列关于静态成员和非晶态成员，说法错误的是？
+A) 静态成员存在于内存，非静态成员需要实例化才会分配内存
+B) 非静态成员可以直接访问类中的静态成员
+C) 静态成员能访问非静态成员
+D) 非静态成员的生存期决定于该类的生存期，而静态成员则不存在生存期的概念
+**Analysis**
+非静态成员只有实例化之后才会分配内存，所以静态成员无法访问非静态成员。
+Ans 9: C
+
+Error 10:
+class CParent 
+{
+public: 
+	virtual void Intro() { printf( "I'm a Parent, " ); Hobby(); }
+    virtual void Hobby() { printf( "I like football!" ); }
+}; 
+class CChild : public CParent { 
+public: 
+	virtual void Intro() { printf( "I'm a Child, " ); Hobby(); }
+    virtual void Hobby() { printf( "I like basketball!\n" ); }
+}; 
+int main( void )
+{
+    CChild *pChild = new CChild(); 
+    CParent *pParent = (CParent *) pChild; 
+    pParent->Intro(); 
+    return(0);
+}
+
+A) I'am a Parent, I like football!
+B) I'am a Parent, I like baseketball!
+C) I'am a Child, I like football!
+D) I'am a Child, I like baseketball!
+
+**Analysis**
+基类指针将虚函数调用指向的派生类中的同名函数。
+Ans 10: D
+
+Error 11:
+在32位小端的机器上，如下代码输出是什么：
+char array[12] = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+short *pshort = (short*)array;
+int *pint = (int*)array;
+int65 *pint64 = (int64*)array;
+print("0x%x, 0x%x, 0x%x, 0x%x", *pshort, *(pshort + 2), *pint64, *(pint + 2));
+
+A) 0x201, 0x403, 0x807060504030201, 0x0
+B) 0x201, 0x605, 0x807060504030201, 0x0
+C) 0x201, 0x605, 0x4030201, 0x8070605
+D) 0x102, 0x506, 0x102030405060708, 0x0
+
+**Analysis**
+小端机器:
+低地址 & 高地址 | 低地址 & 高地址 | 低地址 & 高地址 | 低地址 & 高地址 |
+ 0x01  &  0x02  |  0x03  &  0x04  |  0x05  &  0x06  |  0x07  &  0x08  |
+    pshort                             pshort + 2                        pint + 2
+    0x0201								0x0605
+    pint64
+    0x0807060504030201
+
+Ans 11: B
+
+
 			 
