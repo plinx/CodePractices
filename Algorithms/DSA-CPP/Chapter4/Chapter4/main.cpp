@@ -1,5 +1,8 @@
 #include "stdafx.h"
 
+template <typename E>
+void test_List(List<E>* list);
+
 int main()
 {
 	ArrList<int> arrList(20);
@@ -40,7 +43,7 @@ int main()
 	linkList.toEnd();
 	linkList.prev();
 	UT_Assert(linkList.remove() == 18, "LinkList remove error.");
-	linkList.print();
+	//linkList.print();
 	UT_Assert(linkList.currPos() == 10, "LinkList currPos error.");
 	linkList.toPos(5);
 	UT_Assert(linkList.getValue() == 6, "LinkList toPos error.");

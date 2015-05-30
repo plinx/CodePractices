@@ -13,6 +13,23 @@ class LinkList : public List<E>
 		Link() : _next(NULL) {}
 		Link(Link* next) : _next(next) {}
 		Link(const E& item, Link* next) : _item(item), _next(next) {}
+
+		void* operator new(size_t)
+		{
+			if (_freeList == NULL) return ::new Link();
+			Link* tmp = _freeList;
+			_freeList = _freeList->_next;
+			return tmp;
+		}
+
+		void operator delete(void *ptr)
+		{
+			((Link*)ptr)->_next = _freeList;
+			_freeList = (Link*)ptr;
+		}
+
+	private:
+		static Link* _freeList;
 	};
 private:
 	Link* _head;
@@ -31,7 +48,10 @@ private:
 		}
 	}
 public:
-	LinkList() { init(); }
+	LinkList() 
+	{ 
+		init(); 
+	}
 	~LinkList() { removeAll(); }
 
 	void print()
@@ -101,5 +121,7 @@ public:
 	const E& getValue() const { return _curr->_item; }
 };
 
+template <typename E>
+typename LinkList<E>::Link* LinkList<E>::Link::_freeList = nullptr;
 
 #endif
