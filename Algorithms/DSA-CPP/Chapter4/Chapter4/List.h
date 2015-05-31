@@ -2,16 +2,12 @@
 #define List_h
 
 template <typename E>
-class List
+struct List
 {
-private:
-	void operator=(const List&) {}
-	List(const List&) {}
-
-public:
 	List() = default;
 	virtual ~List() = default;
 
+	virtual void print() = 0;
 	virtual void clear() = 0;
 	virtual void insert(const E& item) = 0;
 	virtual void append(const E& item) = 0;

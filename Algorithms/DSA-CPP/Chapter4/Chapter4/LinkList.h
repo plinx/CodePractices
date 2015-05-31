@@ -2,8 +2,9 @@
 #define LinkList_h
 
 template <typename E>
-class LinkList : public List<E>
+struct LinkList : public List<E>
 {
+private:
 	enum { defaultSize = 10, };
 	struct Link
 	{
@@ -81,8 +82,8 @@ public:
 	E remove() 
 	{ 
 		UT_Assert(_curr->_next != NULL, "No element.");
-		E item = _curr->_next->_item;
 		Link* tmp = _curr->_next;
+		E item = tmp->_item;
 		if (_tail == _curr->_next) _tail = _curr;
 		_curr->_next = _curr->_next->_next;
 		delete tmp;
