@@ -7,6 +7,8 @@ template <typename E>
 void test_LinkList(List<E>* list);
 template <typename E>
 void test_Stack(Stack<E>* stack);
+template <typename E>
+void test_Queue(Queue<E>* queue);
 
 // implement
 template <typename E>
@@ -75,5 +77,18 @@ void test_Stack(Stack<E>* stack)
 
 }
 
+template <typename E>
+void test_Queue(Queue<E>* queue)
+{
+	for (int i = 0; i < 10; i++)
+		queue->enqueue(i * 2);
+
+	UT_Assert(queue->front() == 0, "Queue enqueue error.");
+	UT_Assert(queue->dequeue() == 0, "Queue dequeue error.");
+	UT_Assert(queue->length() == 9, "Queue length error.");
+	queue->clear();
+	queue->enqueue(26);
+	UT_Assert(queue->front() == 26, "Queue clear error.");
+}
 
 #endif

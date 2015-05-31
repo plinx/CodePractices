@@ -9,6 +9,9 @@
 #include "Stack.h"
 #include "ArrStack.h"
 #include "LinkStack.h"
+#include "Queue.h"
+#include "ArrQueue.h"
+#include "LinkQueue.h"
 #include "TestCase.h"
 
 #endif
