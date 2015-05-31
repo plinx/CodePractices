@@ -9,5 +9,6 @@
 #include "Stack.h"
 #include "ArrStack.h"
 #include "LinkStack.h"
+#include "TestCase.h"
 
 #endif
