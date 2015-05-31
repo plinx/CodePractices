@@ -1,0 +1,98 @@
+Error 1:
+char *string_a = (char*)malloc(100 * sizeof(char));
+char string_b[100];
+
+请问在 64 位平台机器下 sizeof(string_a), sizeof(string_b) 大小分别是？
+A) 8 100 B) 100 8 C) 100 100 D) 8 8
+
+**Analysis**
+string_a is a pointer, string_b is a buffer.
+
+Ans 1: A
+
+Error 2:
+typedef char T[10];
+T* a;
+
+上述定义中 a 的类型与下面选项中完全相同的是？
+A) char a[10];
+B) char (*a)[10];
+C) char *a;
+D) char *a[10];
+
+**Analysis**
+typedef 不产生新类型，而是加入别称。
+typedef char T1;
+T1 b1;	=> char b1;
+T1* b2;	=> char (*b2);
+typedef char T2[10];
+T2 b3;	=> char b3[10];
+T2* b4;	=> char (*b4)[10];
+
+Ans 2: B
+
+Error 3:
+int a[3][4], 下面哪个不能表示 a[1][1]?
+A) *(&a[0][0] + 5)
+B) *(*(a + 1) + 1)
+C) *(&a[1] + 1)
+D) *(a + 5)
+
+**Analysis**
+*(&a[0][0] + 5) 	=> &a[0][0] : element position pointer refer to a[0][0]
+					=> &a[0][0] + 5 : element position pointer refer to a[1][1]
+					=> *(&a[0][0] + 5) : element in a[1][1]
+
+*(*(a + 1) + 1)		=> (a + 1) : row pointer refer to a[1]
+					=> *(a + 1) : element pointer refer to a[1][0]
+					=> *(a + 1) + 1 : element pointer refer to a[1][1]
+					=> *(*(a + 1) + 1) : element in a[1][1]
+
+*(&a[1] + 1)		=> &a[1] : row pointer refer to a[1]
+					=> &a[1] + 1 : row pointer refer to a[2]
+					=> *(&a[1] + 1] : element pointer refer to a[2][0]
+					fixed:
+					=> *(*(&a[1]) + 1) : element in a[1][1]
+					
+*(a + 5)			=> a : row pointer refer to a[0]
+					=> a + 5 : row pointer refer to a[5]
+					=> *(a + 5) : element pointer refer to a[5][0] (NULL)
+					fixed:
+					=> *(*a + 5)
+					
+Ans 3: C or D
+
+Error 4:
+x, y, t 均为 int 型变量，执行
+t = 3;
+x = y = 2;
+t = x++ || ++ y;
+变量 t 和 y 的值分别为?
+
+**Analysis**
+t = x++ || ++y; // (2++) || (waiting) => true => bool => t = 1 => quit without waiting execute.
+				// y = 2
+			
+Ans 4: t = 1, y = 2
+
+Error 5:
+Which of the following statements are true?
+A) We can create a binary tree from given inorder and preorder traversal sequences.
+B) We can create a binary tree from given preorder and postorder traversal sequeces.
+C) For almost sotred array, insertion sort can be more effective than Quicksort.
+D) Suppose T(n) is the run time if resoving a problem with n elements, T(n) = theta(1) if n = 1;
+T(n) = 2 * T(n/2) + theta(n) if n > 1; so T(n) is theta(nlog(n))
+D) None of the above
+
+**Analysis**
+We must know root to create a binary tree.
+A) inorder(pick root) and preorder(no root)
+B) preorder(no root) and postorder(no root)
+C) 
+D) T(n) = theta(1) | n = 1
+=> T(n) = 2 * T(n/2) + theta(n) => 2 * 2 * (T(n/4)) + 2 * theta(n/2) + theta(n)
+=> ... => T(n) = theta(nlog(n))
+
+Ans 5: A C D
+					
+
