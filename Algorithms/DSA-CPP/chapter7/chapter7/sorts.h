@@ -45,8 +45,8 @@ void shellSort(E A[], int n)
 {
 	for (int i = n / 2; i > 2; i /= 2)
 		for (int j = 0; j < i; j++)
-			shellInsert(A, n - j, i);
-		shellInsert(A, n, 1);
+			shellInsert<E>(A, n - j, i);
+		shellInsert<E>(A, n, 1);
 }
 
 template <typename E>
@@ -55,8 +55,8 @@ void mergeSort(E A[], E tmp[], int left, int right)
 	if (left == right) return;
 	int mid = (left + right) / 2;
 
-	mergeSort(A, tmp, left, mid);
-	mergeSort(A, tmp, mid + 1, right);
+	mergeSort<E>(A, tmp, left, mid);
+	mergeSort<E>(A, tmp, mid + 1, right);
 
 	for (int t = 0; t < mid + 1; t++) tmp[t] = A[t];
 
@@ -72,6 +72,28 @@ void mergeSort(E A[], E tmp[], int left, int right)
 	}
 	while (i <= right) A[k++] = A[i++];
 	while (j < mid + 1) A[k++] = tmp[j++];
+}
+
+template <typename E>
+void quickSort(E A[], int left, int right)
+{
+	if (right <= left) return;
+	int i = left, j = right - 1;
+	while (i < j)
+	{
+		if (A[i] < A[right]) {
+			i++;
+		} else {
+			if (A[j] < A[right])
+				std::swap(A[i++], A[j]);
+			j--;
+		}
+	}
+	if (A[i] > A[right])
+		std::swap(A[i], A[right]);
+
+	quickSort<E>(A, left, i);
+	quickSort<E>(A, i + 1, right);
 }
 
 #endif
