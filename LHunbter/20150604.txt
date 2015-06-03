@@ -1,0 +1,112 @@
+Error 1:
+有种数据结构叫跳跃列表（Skip List），它是一种基于并联的链表的随机化数据结构，其效率可比拟于二叉查找树（对于大于数操作需要O(log n)平均时间）。
+它是按层建造的。底层是一个普通的有序链表。每个更高层都充当下面列表的“快速跑道”，这里在层i中的元素按概率l/p出现在层i+1中。平均起来，每个元素都在p/(p-1)个列表中出现，而最高层的元素（通常是在跳跃列表前段的一个特殊的头元素）在O(logp n)个列表中出现。调节p的大小可以在内存消耗和时间消耗上进行折中。试分析在该数据结构中查找一个元素的平均时间复杂度。
+
+A) O(logn)
+B) O(n)
+C) O(n * logn)
+D) 以上都不正确
+
+
+**Analysis**
+Ans 1: A
+
+Error 2:
+某地电信局要对业务号码进行梳理，需要检测开通的市话号码是否存在某一个是另一个的前缀的情况，以简化电话交换机的逻辑。例如：某用户号码是“11001100”，但与"110"报警电话产生前缀配对。已知市话号码最长8位，最短3位，并且所有3位的电话号码都以1开头。由于市话号码众多，长度也未必一直，高效的算法可以用O(n)的时间复杂度完成检测（n为开通市话号码个数，数量是千万级的）。那么，该算法最坏情况下需要耗费大约________内存空间。
+
+A) 5 GB
+B) 500 MB
+C) 50 MB
+D) 5 MB
+
+**Analysis**
+市话号码最长8位 10^8
+所有 3 位的号码开头都是 1，所以减少一位为 10^7
+10^7 => 10,000,000 => 10 M
+一位数据有 4bit => 10 M * 4 => 40 MB 
+
+Ans 2: C
+
+
+Error 3:
+某 32 位系统下，以下 sizeof 值应为？
+char str[] = "http://www.renren.com"
+char *p = str;
+
+sizeof(str); (1)
+sizeof(p);	 (2)
+void Foo(char str[100])
+{
+	sizeof(str); (3)
+}
+void *q = malloc(100);
+sizeof(q); (4)
+
+A) 22, 22, 100, 100
+B) 4, 4, 4, 4
+C) 22, 4, 4, 4
+D) 22, 4, 100, 4
+
+**Analysis**
+(1) str => str[]
+(2) p	=> pointer
+(3) str => str[100] => pointer
+(4) q 	=> pointer
+
+Ans 3: C
+
+Error 4:
+#include <iostream>
+using namespace std;
+ 
+class A {
+public:
+    ~A() { cout << "~A()";}
+};
+class B{
+    public:
+    virtual ~B() { cout << "~B()"; }
+};
+class C: public A, public B {
+    public:
+    ~C() { cout << "~C()"; }
+};
+int main() {
+    C * c = new C;
+    B * b1 = dynamic_cast<B *>(c);
+    A * a2 = dynamic_cast<A *>(b1);
+    delete a2;
+}
+
+求输出：
+A) ~C()~B()~A()
+B) ~C()~A()~B()
+C) A、B都有可能
+D) 以上都不对
+
+**Analysis**
+~A() is not virtual deconstructor.
+delete a2 => ~A().
+
+Ans 4: D
+
+Error 5:
+enum string{    
+    x1,    
+    x2,    
+    x3=10,    
+    x4,    
+    x5,    
+} x;
+x = ?
+A) 5 
+B) 12
+C) 0
+D) random
+
+**Analysis**
+函数内定义未初始化，则为随机值；
+函数外定义未初始化，则会清零
+Ans 5: C
+
+
