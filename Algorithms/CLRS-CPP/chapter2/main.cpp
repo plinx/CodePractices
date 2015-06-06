@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory>
+#include <random>
+#include <ctime>
 #include <assert.h>
 
 #include "sorts.h"
@@ -11,7 +13,7 @@ int main()
 	insert_test();
 	e211(); e212(); e213(); e214();
 	e222();
-	e231(); e231n();
+	e232();
 	system("pause");
 	return 0;
 }

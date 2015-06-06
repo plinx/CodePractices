@@ -133,30 +133,48 @@ void e222()
   => 3, 9, 26, 38, 41, 49, 52, 57
 */
 
-//2.3-1
-void e231()
+//2.3-2
+void e232()
 {
-	int arr[] = { 5, 2, 4, 6, 1, 3, 9, 7, 8 };
+	clock_t start, t1, t2;
 	int ans[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-	merge_sort_recursive(arr, 0, 8);
+	int size = 100000, num;
+	int arr[100000] = { 0 };
+	int narr[100000] = { 0 };
+	for (int i = 0; i < size; i++)
+	{
+		num = rand() % size;
+		arr[i] = narr[i] = num;
+	}
 
-	for (int i = 0; i < 8; i++)
+	start = clock();
+	merge_sort_recursive(arr, 0, size - 1);
+	t1 = clock() - start;
+
+	start = clock();
+	merge_sort_nonrecursive(arr, size);
+	t2 = clock() - start;
+
+	/*for (int i = 0; i < size; i++)
+	{
+		if (i % 10 == 0) printf("\n");
 		printf("%d, ", arr[i]);
-	printf("%d\n", arr[8]);
+	}*/
+	printf("Run time : %d, %d ms\n", t1, t2);
 }
 
-//2.3-1n
-void e231n()
-{
-	int arr[] = { 5, 2, 4, 6, 1, 3, 9, 7, 8 };
-	int ans[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-	merge_sort_nonrecursive(arr, 9);
+//2.3-3
+/*
+  T(n) = nlgn
+  T(2) = 2lg2 = 2
+  T(n) = 2T(n/2) + n = 2 * n/2 lg(n/2) + n = nlgn - n + n = nlgn
+*/
 
-	for (int i = 0; i < 8; i++)
-		printf("%d, ", arr[i]);
-	printf("%d\n", arr[8]);
+//2.3-4
+//skip
 
-}
+//
+
 
 
 #endif

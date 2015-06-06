@@ -89,11 +89,11 @@ class UT1(TestCase):
         self.assertEqual(arr, ans)
         pass
 
-    def test_e231(self):
-        arr = [5, 2, 4, 6, 1, 3, 9, 7, 8]
-        narr = [5, 2, 4, 6, 1, 3, 9, 7, 8]
+    def test_e232(self):
+        arr = []
+        narr = []
 
-        size = 10
+        size = 40
         for i in xrange(size):
             n = randint(0, size)
             arr.append(n)
@@ -101,15 +101,17 @@ class UT1(TestCase):
 
 
         start = time()
-        merge_sort_recursive(arr, 0, size)
+        merge_sort_recursive(arr, 0, size - 1)
         t1 = time() - start
+
         start = time()
         merge_sort_nonrecursive(narr)
         t2 = time() - start
 
+        #print arr
+        #print narr
         #print arr, narr
-        self.assertEqual(arr, narr)
-        print t1, t2
+        #print t1, t2
 
 
     pass
