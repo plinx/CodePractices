@@ -29,12 +29,12 @@ class Heap(object):
         pass
 
 
-    def max_heapify_nonrecursive(self, A):
+    def max_heapify_nonrecursive(self, A, index):
         if len(A) < 2:
             return
 
         n = len(A)
-        index, left, right = 0, 1, 2
+        left, right = self._Left(index), self._Right(index)
         max = index
 
         while left < n and right < n:
@@ -44,12 +44,32 @@ class Heap(object):
                 max = right
 
             if max != self._Parent(left):
-                A[max], A[index] = A[index], A[max]
-                index = max
-                left = self._Left(index)
-                right = self._Right(index)
+                A[max], A[self._Parent(left)] = A[self._Parent(left)], A[max]
+                left = self._Left(max)
+                right = self._Right(max)
             else:
                 break
+
+        pass
+
+    def build_heap_recursive(self, A):
+        for i in xrange(len(A) / 2, -1, -1):
+            self.max_heapify_recursive(A, i)
+        pass
+
+    def build_heap_nonrecursive(self, A):
+        for i in xrange(len(A) / 2, -1, -1):
+            self.max_heapify_nonrecursive(A, i)
+        pass
+
+    def heap_sort(self, A):
+        size = len(A)
+        self.build_heap_nonrecursive(A)
+
+        for i in xrange(len(A) - 1, -1, -1):
+            A[0], A[i] = A[i], A[0]
+            size -= 1
+            self.max_heapify_nonrecursive(A, 0)
 
         pass
 

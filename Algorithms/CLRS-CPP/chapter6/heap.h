@@ -6,7 +6,7 @@ int _Left(int index) { return 2 * index + 1; }
 int _Right(int index) { return 2 * index + 2; }
 
 template <typename T>
-void max_heapify(T A[], int n, int index)
+void max_heapify_recursive(T A[], int n, int index)
 {
 	if (n < 2) return;
 	int left = _Left(index);
@@ -21,7 +21,7 @@ void max_heapify(T A[], int n, int index)
 		//printf("%d, %d, %d, %d\n", index, left, max, right);
 		//printf("%d, %d\n", A[max], A[index]);
 		std::swap(A[max], A[index]);
-		max_heapify(A, n, max);
+		max_heapify_recursive(A, n, max);
 	}
 }
 
@@ -73,5 +73,32 @@ void max_heapify_nonrecursive(T A[], int n, int index)
 	}
 }
 
+template <typename T>
+void build_heap_recursive(T A[], int n)
+{
+	for (int i = n / 2; i >= 0; i--)
+		max_heapify_recursive(A, n, i);
+}
+
+template <typename T>
+void build_heap_nonrecursive(T A[], int n)
+{
+	for (int i = n / 2; i >= 0; i--)
+		max_heapify_nonrecursive(A, n, i);
+}
+
+template <typename T>
+void heap_sort(T A[], int n)
+{
+	int size = n;
+	build_heap_nonrecursive(A, size);
+
+	for (int i = n - 1; i >= 0; i--)
+	{
+		std::swap(A[0], A[i]);
+		size--;
+		max_heapify_nonrecursive(A, size, 0);
+	}
+}
 
 #endif
