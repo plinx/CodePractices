@@ -28,7 +28,7 @@ void max_heapify_recursive(T A[], int n, int index)
 template <typename T>
 void min_heapify(T A[], int n, int index)
 {
-	if (n < 2) return;
+	if (n < 1) return;
 
 	int left = _Left(index);
 	int right = _Right(index);
@@ -54,10 +54,10 @@ void max_heapify_nonrecursive(T A[], int n, int index)
 	int max = index;
 
 //	printf("%d, %d, %d, %d\n", left, right, max, n);
-	while (left < n && right < n)
+	while (left < n || right < n)
 	{
-		if (A[max] < A[left]) max = left;
-		if (A[max] < A[right]) max = right;
+		if (left < n && A[max] < A[left]) max = left;
+		if (right < n && A[max] < A[right]) max = right;
 
 //		printf("%d, %d\n", A[max], A[_Parent(left)]);
 		if (max != _Parent(left))
@@ -91,9 +91,9 @@ template <typename T>
 void heap_sort(T A[], int n)
 {
 	int size = n;
-	build_heap_nonrecursive(A, size);
+	build_heap_nonrecursive(A, n);
 
-	for (int i = n - 1; i >= 0; i--)
+	for (int i = n - 1; i > 0; i--)
 	{
 		std::swap(A[0], A[i]);
 		size--;

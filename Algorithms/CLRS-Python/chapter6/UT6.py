@@ -10,8 +10,8 @@ class UT6(TestCase):
     def test_max_heapify(self):
         max_arr1 = [ 1, 5, 8, 6, 4, 3, 2, 7, 9 ]
         max_arr2 = [ 1, 5, 8, 6, 4, 3, 2, 7, 9 ]
-        Heap().max_heapify_recursive(max_arr1, 0)
-        Heap().max_heapify_nonrecursive(max_arr2, 0)
+        Heap().max_heapify_recursive(max_arr1, len(max_arr1), 0)
+        Heap().max_heapify_nonrecursive(max_arr2, len(max_arr2), 0)
         #print max_arr1, max_arr2
         self.assertEqual(max_arr1, max_arr2)
 
@@ -50,6 +50,13 @@ class UT6(TestCase):
         Heap().heap_sort(A)
         print A
         pass
+
+    def test_e641(self):
+        A = [ 5, 13, 2, 25, 7, 17, 20, 8, 4 ]
+        Heap().heap_sort(A)
+        print A
+        pass
+
 
     pass
 
