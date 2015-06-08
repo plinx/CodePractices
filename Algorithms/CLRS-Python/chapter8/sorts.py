@@ -27,7 +27,7 @@ class Sorts(object):
             C[A[j]] -= 1
         pass
 
-    def radix_sort(self, A, n):
+    def radix_sort_int(self, A, n):
         B = [[] for i in xrange(9)]
         for k in xrange(n):
             for i in xrange(len(A)):
