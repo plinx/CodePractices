@@ -50,4 +50,61 @@ void count_sort_up(T A[], T B[], int n, int k)
 	}
 }
 
+void radix_sort_int(int A[], int n, int key)
+{
+	Queue<int>* B = new Queue<int>[10];
+	int kth, radix, j;
+	for (int k = 0; k < key; k++)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			kth = (A[i] / (int)pow(10, k)) % 10;
+			B[kth].enqueue(A[i]);
+		}
+		radix = j = 0;
+		while (radix < n)
+		{
+			if (!B[j].is_empty())
+			{
+				A[radix] = B[j].dequeue();
+				//printf("%d, ", B[j].dequeue());
+				radix++;
+			}
+			else
+			{
+				j++;
+			}
+		}
+	}
+}
+
+void radix_sort_str(std::string A[], int n, int key)
+{
+	Queue<std::string>* B = new Queue<std::string>[26];
+
+	int kth, radix, j;
+	for (int k = 0; k < key; k++)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			kth = A[i][key - k - 1] - 'A';
+			B[kth].enqueue(A[i]);
+		}
+		radix = j = 0;
+		while (radix < n)
+		{
+			if (!B[j].is_empty())
+			{
+				A[radix] = B[j].dequeue();
+				radix++;
+			}
+			else
+			{
+				j++;
+			}
+		}
+	}
+
+}
+
 #endif

@@ -29,7 +29,7 @@ class UT8(TestCase):
         print "count_sort_up", A, B
         pass
 
-    def test_radix_sort(self):
+    def test_radix_sort_int(self):
         A = [421, 240, 35, 532, 305, 430, 134]
         Sorts().radix_sort_int(A, 3)
         print "radix_sort_int", A
@@ -43,6 +43,10 @@ class UT8(TestCase):
         print "radix_sort_str", A
         pass
 
+    def test_bucket_sort(self):
+        A = [42, 23, 14, 52, 63, 67, 45, 13, 26, 13]
+        Sorts().bucket_sort(A)
+        print "bucket_sort", A
     pass
 
 if __name__ == '__main__':

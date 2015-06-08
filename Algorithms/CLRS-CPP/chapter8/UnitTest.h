@@ -37,5 +37,24 @@ void e823()
 	printf("%d\n", B[len(B) - 1]);
 }
 
+void test_radix_sort_int()
+{
+	int A[] = { 421, 240, 35, 532, 305, 430, 134 };
+	radix_sort_int(A, len(A), 3);
+	for (int i = 0; i < len(A) - 1; i++)
+		printf("%d, ", A[i]);
+	printf("%d\n", A[len(A) - 1]);
+}
 
+void test_radix_sort_str()
+{
+	std::string str[] = {
+		"COW", "DOG", "SEA", "RUG", "ROW", "MOB", "BOX", "TAB",
+		"BAR", "EAR", "TAR", "DIG", "BIG", "TEA", "NOW", "FOX"
+	};
+	radix_sort_str(str, len(str), 3);
+	for (int i = 0; i < len(str) - 1; i++)
+		printf("%s, ", str[i].c_str());
+	printf("%s\n", str[len(str) - 1].c_str());
+}
 #endif
