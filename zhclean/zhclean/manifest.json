@@ -1,0 +1,12 @@
+{
+	"name":"zhclean",
+	"version":"2",
+	"manifest_version":2,
+	"description":"hehe",
+	"permissions":["tabs"],
+	"content_scripts":[{
+		"js":["zhclean.js"],
+		"matches":["http://*.zhihu.com/*"],
+		"run_at":"document_end"
+		}]
+}
