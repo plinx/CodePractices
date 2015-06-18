@@ -9,7 +9,7 @@ class TreeNode(object):
 
 class Solution(object):
     # find a better way tomorrow!!!
-    def levelOreder(self, root):
+    def levelOrederBottom(self, root):
         if root == None:
             return []
 
@@ -35,6 +35,7 @@ class Solution(object):
                     r[row + 1].append(tmp.right.val)
             row += 1
 
+        r.reverse()
         return r
 
 
@@ -42,8 +43,7 @@ class Solution(object):
     pass
 
 if __name__ == '__main__':
-    #table = [2, 2, 3, 4, 4, 3]
-    table = [-42, -42, '#', 76, 76, '#', '#', 13, '#', 13]
+    table = [2, 2, 3, 4, 4, 3]
     #table = [3, 9, 20, '#', '#', 15, 7]
     #table = [2]
 
@@ -67,7 +67,7 @@ if __name__ == '__main__':
     #print tree.left.left.val, tree.left.right.val
     #print tree.right.left.val, tree.right.right.val
 
-    print Solution().levelOreder(tree)
+    print Solution().levelOrederBottom(tree)
 
 
     pass
