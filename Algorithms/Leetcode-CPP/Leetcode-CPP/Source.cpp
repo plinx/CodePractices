@@ -1,6 +1,6 @@
-#include "lc125.h"
+#include "lc225.h"
 
 int main()
 {
-	return lc125();
+	return lc225();
 }
