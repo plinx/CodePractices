@@ -9,31 +9,35 @@ class ListNode(object):
     pass
 
 class Solution(object):
-    def sortList(self, head):
+    def insertionSort(self, head):
         if head == None or head.next == None:
             return head
-        result = []
-        tmp = head
-        while tmp:
-            result.append(tmp)
-            tmp = tmp.next
 
-        #print [x.val for x in result]
-        result.sort(key=lambda x:x.val)
-        #print [x.val for x in result]
+        newhead = ListNode(0)
 
-        for i in xrange(1, len(result)):
-            result[i - 1].next = result[i]
-        result[-1].next = None
+        prev = newhead
+        while head:
+            if prev.next and prev.next.val > head.val:
+                prev = newhead
+            while prev.next != None and prev.next.val < head.val:
+                prev = prev.next
+            if prev != head:
+                next = head.next
+                head.next = prev.next
+                prev.next = head
+                head = next
+            else:
+                head = head.next
 
-        return result[0]
+        return newhead.next
+
         pass
     pass
 
-def main():
+if __name__ == '__main__':
     Listin, Listout = [], []
     orgHead, curr = None, None
-    for i in xrange(10):
+    for i in xrange(20):
         num = randint(0, 100)
         Listin.append(num)
         if curr != None:
@@ -45,14 +49,10 @@ def main():
 
     print Listin
 
-    tmp = Solution().sortList(orgHead)
+    tmp = Solution().insertionSort(orgHead)
     while tmp != None:
         Listout.append(tmp.val)
         tmp = tmp.next
 
     print Listout
-
-
-if __name__ == '__main__':
-    main()
-
+    pass
