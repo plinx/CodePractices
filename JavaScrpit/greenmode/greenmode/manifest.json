@@ -1,0 +1,12 @@
+{
+	"name":"greenmode",
+	"version":"0.1",
+	"manifest_version":2,
+	"description":"hehe",
+	"permissions":["tabs"],
+	"content_scripts":[{
+		"js":["greenmode.js"],
+		"matches":["http://*/*", "https://*/*"],
+		"run_at":"document_end"
+		}]
+}
