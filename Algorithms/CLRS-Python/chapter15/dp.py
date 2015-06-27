@@ -5,25 +5,26 @@ class DP(object):
         if n == 0:
             return 0
         q = -2147483648
-        for i in xrange(1, n + 1):
-            q = max(q, p[i] + self.cur_rod(p, n - i))
+        for i in xrange(n):
+            q = max(q, p[i] + self.cur_rod(p, n - i - 1))
         return q
         pass
 
     def memoized_cur_rod(self, p, n):
-        r = [-2147483648] * (n + 1)
-        r[0] = 0
+        r = [-2147483648] * n
         return self.memoized_cur_rod_aux(p, n, r)
         pass
 
     def memoized_cur_rod_aux(self, p, n, r):
-        if 0 <= r[n]:
-            return r[n]
-        q = r[n]
-        for i in xrange(1, n + 1):
+        if n == 0:
+            return 0
+        if 0 < r[n - 1]:
+            return r[n - 1]
+        q = r[n - 1] if n != 0 else 0
+        for i in xrange(n):
             #print q, p[i], self.memoized_cur_rod_aux(p, n - i, r)
-            q = max(q, p[i] + self.memoized_cur_rod_aux(p, n - i, r))
-        r[n] = q
+            q = max(q, p[i] + self.memoized_cur_rod_aux(p, n - i - 1, r))
+        r[n - 1] = q
         #print r
         return q
         pass
@@ -32,12 +33,25 @@ class DP(object):
         r = [0] * (n + 1)
         for j in xrange(1, n + 1):
             q = -2147483648
-            for i in xrange(1, j + 1):
-                q = max(q, p[i] + r[j - i])
+            for i in xrange(j):
+                q = max(q, p[i] + r[j - i - 1])
             r[j] = q
 
         return r[n]
         pass
+
+    def bottom_up_cur_rod_result(self, p, n):
+        r = [0] * (n + 1)
+        s = [0] * (n + 1)
+        for j in xrange(1, n + 1):
+            q = -2147483648
+            for i in xrange(j):
+                if q < p[i] + r[j - i - 1]:
+                    q = p[i] + r[j - i - 1]
+                    s[j] = i
+                    r[j] = q
+
+        return r[n], s[n] + 1
 
     def fib_r(self, n):
         if n < 0:
