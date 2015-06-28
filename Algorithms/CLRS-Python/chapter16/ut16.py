@@ -32,14 +32,23 @@ class UT16(TestCase):
         #dp or greedy with v between intersect activities
 
     def test_knapsack(self):
-        sacks = [[1, 6], [2, 10], [3, 12]]
+        sacks = [[1, 6], [2, 10], [3, 12], [4, 10], [5, 20]]
         gd = Greedy()
 
-        print gd.dp_knapsack(sacks, 5)
+        self.assertEqual(gd.dp_knapsack(sacks, 7), 30)
+        self.assertEqual(gd.greedy_knapsack_decrease(sacks, 7), 30)
         pass
-
-
     pass
+
+    def test_huffman(self):
+        elems = [['f', 5], ['e', 9], ['c', 12], ['b', 13], ['d', 16], ['a', 45]]
+        gd = Greedy()
+
+        #print gd.huffman(elems)
+        htree = gd.huffman(elems)
+        #print htree.left.weight, htree.right.weight
+        gd.preorder_travel(htree)
+        pass
 
 
 if __name__ == '__main__':

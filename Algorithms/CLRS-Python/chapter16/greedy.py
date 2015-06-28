@@ -52,30 +52,81 @@ class Greedy(object):
         r = [[0 for i in xrange(w + 1)] for j in xrange(n + 1)]
 
         rw = 0
-        print [0, 0], r[0]
         for j in xrange(1, n + 1):
-            print s[j - 1],
+            #print s[j - 1],
             for i in xrange(1, w + 1):
                 if i < s[j - 1][0]:
                     r[j][i] = r[j - 1][i]
-                else: # s[j][0] <= i
-                    #if r[j - 1][i] < s[j - 1][1]:
-                    if r[j - 1][i] < r[j - 1][i - s[j - 1][0]] + s[j - 1][1]:
-                        r[j][i] = r[j - 1][i - s[j - 1][0]] + s[j - 1][1]
-                    else:
-                        r[j][i] = r[j - 1][i]
+                elif r[j - 1][i] < r[j - 1][i - s[j - 1][0]] + s[j - 1][1]:
+                    r[j][i] = r[j - 1][i - s[j - 1][0]] + s[j - 1][1]
+                else:
+                    r[j][i] = r[j - 1][i]
 
-            print r[j]
+            #print r[j]
 
+        return r[-1][-1]
+        pass
 
+    def greedy_knapsack_decrease(self, s, w):
+        n = len(s) - 1
+        while 0 < n and w < s[n][0]:
+            n -= 1
 
+        result = []
+        while 0 <= n and 0 <= w:
+            if s[n][0] <= w:
+                result.append(s[n])
+                w -= s[n][0]
+            n -= 1
 
+        return sum(result[i][1] for i in xrange(len(result)))
+        pass
 
+    class TreeNode(object):
+        def __init__(self, x):
+            self.weight = x
+            self.char = None
+            self.left = None
+            self.right = None
+        pass
+    def huffman(self, s):
+        queue = []
+        for i in xrange(len(s)):
+            queue.append(self.TreeNode(s[i][1]))
+            queue[-1].char = s[i][0]
 
+        while 1 < len(queue):
+            node = self.TreeNode(0)
+            if queue != []:
+                node.left = queue[0]
+                node.weight += node.left.weight
+                queue.pop(0)
+            if queue != []:
+                node.right = queue[0]
+                node.weight += node.right.weight
+                queue.pop(0)
+            for i in xrange(len(queue)):
+                if queue[i].weight < node.weight:
+                    continue
+                else: # node.weight < queue[i].weight
+                    queue.insert(i, node)
+                    node = None
+                    break
+            if node != None:
+                queue.append(node)
 
+        return queue[0]
+        pass
 
-
-
+    def preorder_travel(self, root):
+        if root == None:
+            return
+        if root.char != None:
+            print [root.char, root.weight],
+        else:
+            print root.weight,
+        self.preorder_travel(root.left)
+        self.preorder_travel(root.right)
         pass
 
     pass
