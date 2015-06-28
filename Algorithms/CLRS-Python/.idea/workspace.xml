@@ -21,33 +21,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dp.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/chapter15/dp.py">
+      <file leaf-file-name="greedy.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/chapter16/greedy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27813163">
-              <caret line="179" column="26" selection-start-line="179" selection-start-column="26" selection-end-line="179" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.6369427">
+              <caret line="65" column="44" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ut8.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chapter8/ut8.py">
+      <file leaf-file-name="ut16.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chapter16/ut16.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
-              <folding>
-                <element signature="e#21#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ut15.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chapter15/ut15.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
+              <caret line="34" column="33" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
               <folding>
                 <element signature="e#21#50#0" expanded="true" />
               </folding>
@@ -79,6 +67,8 @@
         <option value="$PROJECT_DIR$/chapter15/DP.py" />
         <option value="$PROJECT_DIR$/chapter15/ut15.py" />
         <option value="$PROJECT_DIR$/chapter15/dp.py" />
+        <option value="$PROJECT_DIR$/chapter16/ut16.py" />
+        <option value="$PROJECT_DIR$/chapter16/greedy.py" />
       </list>
     </option>
   </component>
@@ -115,6 +105,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -143,37 +134,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="chapter15" />
+              <option name="myItemId" value="chapter16" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
   </component>
-  <component name="RunManager" selected="Python.ut15">
-    <configuration default="false" name="UT1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chapter2" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CLRS-Python" />
-      <option name="SCRIPT_NAME" value="H:\DreamCode\CodePractices\Algorithms\CLRS-Python\chapter2\ut1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.ut16">
     <configuration default="false" name="UT6" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -238,6 +211,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CLRS-Python" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chapter15/ut15.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ut16" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chapter16" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CLRS-Python" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chapter16/ut16.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -365,19 +355,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.UT1" />
-      <item index="1" class="java.lang.String" itemvalue="Python.UT6" />
-      <item index="2" class="java.lang.String" itemvalue="Python.ut7" />
-      <item index="3" class="java.lang.String" itemvalue="Python.ut8" />
-      <item index="4" class="java.lang.String" itemvalue="Python.ut15" />
+      <item index="0" class="java.lang.String" itemvalue="Python.UT6" />
+      <item index="1" class="java.lang.String" itemvalue="Python.ut7" />
+      <item index="2" class="java.lang.String" itemvalue="Python.ut8" />
+      <item index="3" class="java.lang.String" itemvalue="Python.ut15" />
+      <item index="4" class="java.lang.String" itemvalue="Python.ut16" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.ut15" />
-        <item index="1" class="java.lang.String" itemvalue="Python.ut8" />
-        <item index="2" class="java.lang.String" itemvalue="Python.ut7" />
-        <item index="3" class="java.lang.String" itemvalue="Python.UT6" />
-        <item index="4" class="java.lang.String" itemvalue="Python.UT1" />
+        <item index="0" class="java.lang.String" itemvalue="Python.ut16" />
+        <item index="1" class="java.lang.String" itemvalue="Python.UT6" />
+        <item index="2" class="java.lang.String" itemvalue="Python.ut15" />
+        <item index="3" class="java.lang.String" itemvalue="Python.ut8" />
+        <item index="4" class="java.lang.String" itemvalue="Python.ut7" />
       </list>
     </recent_temporary>
   </component>
@@ -431,12 +421,22 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/chapter8/ut8.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+          <folding>
+            <element signature="e#21#50#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/chapter15/ut15.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#21#50#0" expanded="true" />
+            <element signature="e#21#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -454,7 +454,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
           <folding>
-            <element signature="e#21#50#0" expanded="true" />
+            <element signature="e#21#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -464,35 +464,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#21#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chapter15/dp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chapter8/ut8.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
-          <folding>
-            <element signature="e#21#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chapter15/ut15.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#50#0" expanded="true" />
+            <element signature="e#21#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -509,7 +481,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
           <folding>
-            <element signature="e#21#50#0" expanded="true" />
+            <element signature="e#21#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -533,7 +505,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
           <folding>
-            <element signature="e#21#50#0" expanded="true" />
+            <element signature="e#21#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -557,7 +529,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
           <folding>
-            <element signature="e#21#50#0" expanded="true" />
+            <element signature="e#21#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -581,7 +553,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
           <folding>
-            <element signature="e#21#50#0" expanded="true" />
+            <element signature="e#21#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -605,7 +577,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
           <folding>
-            <element signature="e#21#50#0" expanded="true" />
+            <element signature="e#21#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -629,7 +601,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
           <folding>
-            <element signature="e#21#50#0" expanded="true" />
+            <element signature="e#21#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -653,7 +625,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#21#50#0" expanded="true" />
+            <element signature="e#21#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -805,30 +777,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/chapter15/dp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55586594">
+          <caret line="179" column="26" selection-start-line="179" selection-start-column="26" selection-end-line="179" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/chapter8/ut8.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.6368715">
           <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
           <folding>
-            <element signature="e#21#50#0" expanded="true" />
+            <element signature="e#21#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chapter15/ut15.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.38547486">
           <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
+          <folding>
+            <element signature="e#21#50#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapter16/ut16.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="33" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
           <folding>
             <element signature="e#21#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chapter15/dp.py">
+    <entry file="file://$PROJECT_DIR$/chapter16/greedy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27813163">
-          <caret line="179" column="26" selection-start-line="179" selection-start-column="26" selection-end-line="179" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.6369427">
+          <caret line="65" column="44" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
           <folding />
         </state>
       </provider>
