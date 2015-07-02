@@ -53,7 +53,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	HDC hdc, hdcmem;
 	HBITMAP hbitmap;
 	PAINTSTRUCT ps;
-	PBYTE pRgb, Line = NULL;
+	PBYTE pRgb, point = NULL;
 	int BytesPerLine;
 
 	switch (msg)
@@ -93,13 +93,13 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 			BytesPerLine += 4 - BytesPerLine % 4;
 		for (float y = 0; y < cyClient; y++)
 		{
-			Line = pRgb;
+			point = pRgb;
 			for (float x = 0; x < cxClient; x++)
 			{
-				Line[0] = 0;
-				Line[1] = y / cyClient * 255;
-				Line[2] = x / cxClient * 255;
-				Line += 3;
+				point[0] = 0;
+				point[1] = y / cyClient * 255;
+				point[2] = x / cxClient * 255;
+				point += 3;
 			}
 			pRgb += BytesPerLine;
 		}
