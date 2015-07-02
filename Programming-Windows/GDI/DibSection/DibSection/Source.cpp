@@ -32,7 +32,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	hwnd = CreateWindow(
 		szAppName, szAppName,
 		WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, CW_USEDEFAULT, 640, 480,
+		CW_USEDEFAULT, CW_USEDEFAULT, 480, 480,
 		NULL, NULL, hInstance, NULL);
 
 	ShowWindow(hwnd, iCmdShow);

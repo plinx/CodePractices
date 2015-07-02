@@ -4,10 +4,11 @@
 *.sdf
 *.sln
 *.suo
-*.log
-*.tlog
 *.obj
 *.idb
+*.pdb
+*.log
+*.tlog
 *.vcxproj
 *.filters
 *.opensdf
