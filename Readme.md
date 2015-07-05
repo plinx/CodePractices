@@ -1,1 +1,1 @@
-Merge all code practices here.
+Daily Practies.
