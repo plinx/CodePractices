@@ -2,24 +2,12 @@ __author__ = 'linx'
 
 class Solution(object):
     def canJump(self, nums):
-        if len(nums) == 1:
-            return True
-
-        n = len(nums)
-        for i in xrange(n - 1):
-            j = i
-            while j < n - 1:
-                if nums[j] == 0:
-                    if j == 0 or nums[i + 1] == 0:
-                        #print j, i, nums[i + 1]
-                        #print "test"
-                        return False
-                    break
-                j += nums[j]
-
-            if (n - 1) <= j:
-                return True
-        return False
+        i, pos = 0, 0
+        while i < len(nums) and i <= pos:
+            pos = max(pos, nums[i] + i)
+            i += 1
+        print pos
+        return (len(nums) - 1) <= pos
         pass
     pass
 
@@ -31,6 +19,7 @@ if __name__ == '__main__':
     nums5 = [1, 1, 2, 2, 0, 1, 1]
     nums6 = [5, 9, 3, 2, 1, 0, 2, 3, 3, 1, 0, 0]
 
-    print Solution().canJump(nums6)
+    print Solution().canJump(nums4)
     pass
+
 
