@@ -172,6 +172,10 @@ class Painter(object):
         self.drawText([0.5, 0, 0], "front")
         self.drawText([1, 1, 0], "end")
 
+        #self.drawVecLine([0, 1, 1], [0, 0, 0.5], "red")
+        #self.drawText([0, 1, 1], "z2")
+        #self.drawText([0, 0, 0.5], "z1")
+
         pass
 
     pass
