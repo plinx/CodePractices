@@ -52,7 +52,6 @@ void t5()
 	
 	print_Link_byStack(&head);
 	print_Link_Recursive(&head);
-
 }
 
 #endif

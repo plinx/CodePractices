@@ -2,7 +2,7 @@
 
 int main()
 {
-	t5();
+	t7();
 
 	system("pause");
 	return 0;
