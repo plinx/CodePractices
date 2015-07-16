@@ -1,0 +1,7 @@
+<hello>
+	<world>XML parser.</world>
+	<pets>
+		<cat>Garfield.</cat>
+		<dog>Snoopy.</dog>
+	</pets>
+</hello>
