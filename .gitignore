@@ -12,3 +12,8 @@
 *.vcxproj
 *.filters
 *.opensdf
+*.config
+*.csproj
+*.manifest
+*.txt
+*.cache
