@@ -17,3 +17,5 @@
 *.manifest
 *.txt
 *.cache
+*.bin
+*.asset
