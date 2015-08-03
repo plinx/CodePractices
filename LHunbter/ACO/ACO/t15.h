@@ -32,4 +32,9 @@ ListNode* FindKthToTail(ListNode* head, int k)
 	return pK;
 }
 
+void t15()
+{
+
+}
+
 #endif
